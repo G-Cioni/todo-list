@@ -1,4 +1,4 @@
-export function createProject(name) {
+export function createProject(title) {
 	const tasks = [];
-	return { name, tasks };
+	return { title, tasks };
 }

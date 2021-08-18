@@ -1,6 +1,7 @@
 import './styles.css';
 import { createTask } from './task';
 import { createProject } from './project';
+import { appendProject, appendTask } from './dom';
 
 let task = createTask('first task', 'description', 'dueDate', 'priority');
 let task2 = createTask('second task', 'description', 'dueDate', 'priority');
@@ -12,3 +13,6 @@ task2.addTask(project);
 
 task2.removeTask(project);
 console.table(project.tasks);
+
+appendProject(project);
+appendTask(task);
