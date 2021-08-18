@@ -25,3 +25,4 @@ appendProject(personal);
 appendProject(work);
 appendTask(task);
 appendTask(task2);
+console.log(personal.tasks[0].title);
