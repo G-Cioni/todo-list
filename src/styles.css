@@ -70,6 +70,16 @@ main {
 	margin-left: 1em;
 }
 
+.task-card {
+	display: flex;
+	justify-content: space-between;
+	margin-bottom: 1em;
+	border-radius: 1em;
+	border: 1px solid black;
+}
+.task-card:hover {
+	background-color: rgb(0, 183, 255);
+}
 #quick-add {
 	margin: 0 auto;
 }
