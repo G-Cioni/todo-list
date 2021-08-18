@@ -1,7 +1,7 @@
 export function createTask(title, description, dueDate, priority) {
 	const proto = {
 		addToProject: function (project) {
-			project.append(this);
+			project.tasks.push(this);
 		},
 	};
 	const task = Object.assign(Object.create(proto), {
