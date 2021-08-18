@@ -7,7 +7,8 @@ let task2 = createTask('second task', 'description', 'dueDate', 'priority');
 
 let project = createProject('first project');
 
-task.addToProject(project);
-task2.addToProject(project);
+task.addTask(project);
+task2.addTask(project);
 
-console.log(project.tasks[1].title);
+task2.removeTask(project);
+console.table(project.tasks);
