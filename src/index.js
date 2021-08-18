@@ -3,16 +3,25 @@ import { createTask } from './task';
 import { createProject } from './project';
 import { appendProject, appendTask } from './dom';
 
-let task = createTask('first task', 'description', 'dueDate', 'priority');
-let task2 = createTask('second task', 'description', 'dueDate', 'priority');
+let task = createTask(
+	'Pay bills',
+	'electric, water, wifi',
+	'23/08/2021',
+	'high'
+);
+let task2 = createTask(
+	'Buy smarthphone',
+	'buy a new smartphone for work',
+	'19/12/2021',
+	'low'
+);
 
-let project = createProject('first project');
+let personal = createProject('Personal');
+let work = createProject('Work');
+task.addTask(personal);
+task2.addTask(work);
 
-task.addTask(project);
-task2.addTask(project);
-
-task2.removeTask(project);
-console.table(project.tasks);
-
-appendProject(project);
+appendProject(personal);
+appendProject(work);
 appendTask(task);
+appendTask(task2);
