@@ -8,12 +8,33 @@
 </head>
 <body>
     <div id="sidebar">
-        <button id="create-task">+ Create Task</button>
-        <div id="project-list"></div>
+        <button id="new-task-btn">+ Create Task</button>
+        <div id="project-list">
+            <h3>Projects</h3>
+            <div>example project</div>
+            <div>example project</div>
+            <div>example project</div>
+
+        </div>
     </div>
+    <div id="new-task-popup"></div>
     <main>
-        <div id="task-list"></div>
-        <div id="task-editor"></div>
+        <div id="task-panel" class="panel"> 
+            <div id="task-list"> <h3>Project Name</h3>
+                <div>task 1</div>
+                <div>task 2</div>
+                <div>task 3</div>
+                <div>task 4</div>
+                <div>task 5</div>
+            </div>
+            <div id="quick-add">
+                <input type="text" class="text-input" placeholder="Type to quickly add a task">
+                <button type="submit">Add task</button>
+            </div>
+        </div>
+        <div id="editor-panel" class="panel">
+            <h3>Edit Task</h3>
+        </div>
     </main>
     <script src="bundle.js"></script>
 </body>
