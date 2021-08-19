@@ -1,7 +1,7 @@
 import './styles.css';
 import { createTask } from './task';
 import { createProject } from './project';
-import { renderTasks, renderProjects } from './dom';
+import { renderTasks, renderProjects, selectProject } from './dom';
 
 let personal = createProject('Personal');
 let work = createProject('Work');
@@ -29,3 +29,5 @@ work.addTask(task2);
 
 renderProjects(projects);
 renderTasks(activeProject.tasks);
+
+selectProject(activeProject);

@@ -1,4 +1,4 @@
-export { renderProjects, renderTasks };
+export { renderProjects, renderTasks, selectProject };
 
 function appendProject(project) {
 	const list = document.getElementById('project-list');
@@ -41,4 +41,9 @@ function createTaskCard(task) {
 	card.appendChild(title);
 	card.appendChild(deleteBtn);
 	return card;
+}
+
+function selectProject(project) {
+	const projectTitle = document.getElementById('project-title');
+	projectTitle.textContent = project.title;
 }
