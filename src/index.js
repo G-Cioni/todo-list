@@ -1,7 +1,14 @@
 import './styles.css';
 import { createTask } from './task';
 import { createProject } from './project';
-import { appendProject, appendTask } from './dom';
+import { renderTasks, renderProjects } from './dom';
+
+let personal = createProject('Personal');
+let work = createProject('Work');
+
+const projects = [personal, work];
+
+let activeProject = personal;
 
 let task = createTask(
 	'Pay bills',
@@ -9,6 +16,7 @@ let task = createTask(
 	'23/08/2021',
 	'high'
 );
+
 let task2 = createTask(
 	'Buy smarthphone',
 	'buy a new smartphone for work',
@@ -16,13 +24,8 @@ let task2 = createTask(
 	'low'
 );
 
-let personal = createProject('Personal');
-let work = createProject('Work');
-task.addTask(personal);
-task2.addTask(work);
+personal.addTask(task);
+work.addTask(task2);
 
-appendProject(personal);
-appendProject(work);
-appendTask(task);
-appendTask(task2);
-console.log(personal.tasks[0].title);
+renderProjects(projects);
+renderTasks(activeProject.tasks);

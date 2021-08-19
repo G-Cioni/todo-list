@@ -1,4 +1,4 @@
-export { appendProject, appendTask };
+export { renderProjects, renderTasks };
 
 function appendProject(project) {
 	const list = document.getElementById('project-list');
@@ -8,10 +8,18 @@ function appendProject(project) {
 	list.appendChild(title);
 }
 
+function renderProjects(projects) {
+	projects.forEach((project) => appendProject(project));
+}
+
 function appendTask(task) {
 	const list = document.getElementById('task-list');
 	const card = createTaskCard(task);
 	list.appendChild(card);
+}
+
+function renderTasks(tasks) {
+	tasks.forEach((task) => appendTask(task));
 }
 
 function createTaskTitle(task) {
