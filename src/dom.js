@@ -40,7 +40,13 @@ function createTaskCard(task) {
 	card.appendChild(doneBtn);
 	card.appendChild(title);
 	card.appendChild(deleteBtn);
+	assignIndex(card, 'task-list');
 	return card;
+}
+
+function assignIndex(domElement, domParentId) {
+	const index = document.getElementById(domParentId).children.length;
+	domElement.dataset.index = index - 1;
 }
 
 function selectProject(project) {
