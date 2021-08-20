@@ -1,4 +1,4 @@
-export { renderProjects, renderTasks, selectProject };
+export { renderProjects, renderTasks, selectProject, resetTextInput };
 
 function appendProject(project) {
 	const list = document.getElementById('project-list');
@@ -46,4 +46,8 @@ function createTaskCard(task) {
 function selectProject(project) {
 	const projectTitle = document.getElementById('project-title');
 	projectTitle.textContent = project.title;
+}
+
+function resetTextInput(input) {
+	input.value = '';
 }

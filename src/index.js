@@ -2,13 +2,15 @@ import './styles.css';
 import { createTask } from './task';
 import { createProject } from './project';
 import { renderTasks, renderProjects, selectProject } from './dom';
+import { quickAdd } from './buttons';
+export { activeProject };
 
 let personal = createProject('Personal');
 let work = createProject('Work');
 
 const projects = [personal, work];
 
-let activeProject = personal;
+let activeProject = work;
 
 let task = createTask(
 	'Pay bills',

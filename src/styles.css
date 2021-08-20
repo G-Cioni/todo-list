@@ -20,7 +20,7 @@ h3 {
 	margin-right: 1em;
 }
 
-#new-task-btn {
+#create-task-btn {
 	background-color: rgb(52, 130, 231);
 	border: 1px solid rgb(0, 183, 255);
 	border-radius: 1em;
