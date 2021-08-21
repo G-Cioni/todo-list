@@ -19,9 +19,13 @@ function appendTask(task) {
 }
 
 function renderTasks(tasks) {
-	tasks.forEach((task) => appendTask(task));
+	resetTasks();
+	appendAllTasks(tasks);
 }
 
+function appendAllTasks(tasks) {
+	tasks.forEach((task) => appendTask(task));
+}
 function createTaskTitle(task) {
 	const title = document.createElement('div');
 	title.classList.add('task-title');
@@ -44,6 +48,10 @@ function createTaskCard(task) {
 	return card;
 }
 
+function resetTasks() {
+	let tasks = document.querySelectorAll('.task-card');
+	tasks.forEach((task) => task.remove());
+}
 function assignIndex(domElement, domParentId) {
 	const index = document.getElementById(domParentId).children.length;
 	domElement.dataset.index = index - 1;
