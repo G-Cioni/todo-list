@@ -11,8 +11,15 @@ const quickAddBtn = document.getElementById('quick-add-btn');
 quickAddBtn.addEventListener('click', () => quickAdd(activeProject));
 
 function quickAdd(project) {
-	const task = createTask(quickAddInput.value, '', '', '');
-	project.addTask(task);
-	renderTasks(project.tasks);
-	resetTextInput(quickAddInput);
+	if (quickAddInput.value !== '') {
+		const task = createTask(
+			quickAddInput.value,
+			undefined,
+			undefined,
+			undefined
+		);
+		project.addTask(task);
+		renderTasks(project.tasks);
+		resetTextInput(quickAddInput);
+	}
 }

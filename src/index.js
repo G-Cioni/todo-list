@@ -10,7 +10,7 @@ let work = createProject('Work');
 
 const projects = [personal, work];
 
-let activeProject = work;
+let activeProject = personal;
 
 let task = createTask(
 	'Pay bills',

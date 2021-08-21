@@ -5,6 +5,8 @@ function appendProject(project) {
 	const title = document.createElement('div');
 	title.classList.add('project-title');
 	title.textContent = project.title;
+	const index = document.getElementById('project-list').children.length;
+	title.dataset.project = index - 1;
 	list.appendChild(title);
 }
 
@@ -44,17 +46,14 @@ function createTaskCard(task) {
 	card.appendChild(doneBtn);
 	card.appendChild(title);
 	card.appendChild(deleteBtn);
-	assignIndex(card, 'task-list');
+	const index = document.getElementById('task-list').children.length;
+	card.dataset.task = index - 1;
 	return card;
 }
 
 function resetTasks() {
 	let tasks = document.querySelectorAll('.task-card');
 	tasks.forEach((task) => task.remove());
-}
-function assignIndex(domElement, domParentId) {
-	const index = document.getElementById(domParentId).children.length;
-	domElement.dataset.index = index - 1;
 }
 
 function selectProject(project) {
