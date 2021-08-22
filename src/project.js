@@ -1,13 +1,7 @@
-export {
-	activeProject,
-	projects,
-	createProject,
-	personal,
-	work,
-	setActiveProject,
-};
+export { activeProject, projects, createProject, setActiveProject };
+import { load } from './localStorage';
 
-function createProject(title) {
+function createProject(title, tasks) {
 	const proto = {
 		addTask: function (task) {
 			this.tasks.push(task);
@@ -18,10 +12,9 @@ function createProject(title) {
 			this.tasks.splice(index, 1);
 		},
 	};
-	const tasks = [];
 	const project = Object.assign(Object.create(proto), {
 		title,
-		tasks: [],
+		tasks,
 	});
 	return project;
 }
@@ -29,10 +22,11 @@ function createProject(title) {
 function setActiveProject(project) {
 	activeProject = project;
 }
-let personal = createProject('Personal');
-let work = createProject('Work');
-const projects = [personal, work];
+
+const projects = load();
+
+console.log(projects[0]);
 
 let activeProject;
 
-setActiveProject(personal);
+setActiveProject(projects[0]);

@@ -18,6 +18,7 @@ function quickAdd(project) {
 			undefined,
 			undefined
 		);
+		console.log(project);
 		project.addTask(task);
 		renderTasks(project.tasks);
 		resetTextInput(quickAddInput);
