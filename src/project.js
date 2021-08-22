@@ -1,4 +1,13 @@
-export function createProject(title) {
+export {
+	activeProject,
+	projects,
+	createProject,
+	personal,
+	work,
+	setActiveProject,
+};
+
+function createProject(title) {
 	const proto = {
 		addTask: function (task) {
 			this.tasks.push(task);
@@ -16,3 +25,14 @@ export function createProject(title) {
 	});
 	return project;
 }
+
+function setActiveProject(project) {
+	activeProject = project;
+}
+let personal = createProject('Personal');
+let work = createProject('Work');
+const projects = [personal, work];
+
+let activeProject;
+
+setActiveProject(personal);

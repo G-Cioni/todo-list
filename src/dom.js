@@ -1,4 +1,7 @@
 export { renderProjects, renderTasks, selectProject, resetTextInput };
+import { setActiveProject } from './project';
+
+//can break this into smaller functions
 
 function appendProject(project) {
 	const list = document.getElementById('project-list');
@@ -7,6 +10,11 @@ function appendProject(project) {
 	title.textContent = project.title;
 	const index = document.getElementById('project-list').children.length;
 	title.dataset.project = index - 1;
+	title.addEventListener('click', () => {
+		setActiveProject(project);
+		selectProject(project);
+		renderTasks(project.tasks);
+	});
 	list.appendChild(title);
 }
 

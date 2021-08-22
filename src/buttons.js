@@ -1,6 +1,6 @@
 import { renderTasks, resetTextInput } from './dom.js';
 import { createTask } from './task.js';
-import { activeProject } from './index.js';
+import { activeProject } from './project.js';
 export { quickAdd };
 
 const createTaskBtn = document.getElementById('create-task-btn');
