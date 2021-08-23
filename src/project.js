@@ -23,10 +23,11 @@ function setActiveProject(project) {
 	activeProject = project;
 }
 
-const projects = load();
+let projects = load();
 
-console.log(projects[0]);
+console.log(projects);
 
 let activeProject;
 
 setActiveProject(projects[0]);
+console.log(projects[0]);
