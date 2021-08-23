@@ -6,12 +6,5 @@ function save(projects) {
 }
 
 function load() {
-	let jsonProjects = JSON.parse(localStorage.getItem('projects'));
-	console.log(jsonProjects);
-	return jsonProjects.reduce((projects, project) => {
-		createProject(project.title, project.tasks);
-		projects.push(project);
-		console.log(project.title);
-		return projects;
-	}, []);
+	return JSON.parse(localStorage.getItem('projects'));
 }

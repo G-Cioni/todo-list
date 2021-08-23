@@ -1,6 +1,7 @@
 import { renderTasks, resetTextInput } from './dom.js';
 import { createTask } from './task.js';
-import { activeProject } from './project.js';
+import { activeProject, projects } from './project.js';
+import { save } from './localStorage';
 export { quickAdd };
 
 const createTaskBtn = document.getElementById('create-task-btn');
@@ -20,6 +21,7 @@ function quickAdd(project) {
 		);
 		console.log(project);
 		project.addTask(task);
+		save(projects);
 		renderTasks(project.tasks);
 		resetTextInput(quickAddInput);
 	}
