@@ -1,10 +1,13 @@
-import { renderTasks, resetTextInput, createDomElement } from './dom.js';
+import {
+	renderProjects,
+	renderTasks,
+	resetTextInput,
+	createDomElement,
+} from './dom.js';
 import { createTask } from './task.js';
-import { activeProject, projects } from './project.js';
+import { activeProject, projects, createProject } from './project.js';
 import { save } from './localStorage';
 export { quickAdd, createTaskCardBtn, deleteTask, toggleTaskDone };
-
-// Buttons inside the Task-Card are created inside createTaskCard() in "./dom.js"
 
 const createTaskBtn = document.getElementById('create-task-btn');
 createTaskBtn.addEventListener('click', () => showCreateTaskPopUp());
@@ -16,6 +19,18 @@ quickAddBtn.addEventListener('click', () => quickAdd(activeProject));
 
 const fullAddBtn = document.getElementById('full-add-btn');
 fullAddBtn.addEventListener('click', () => fullAdd(activeProject));
+
+const newProjectInput = document.getElementById('new-project-input');
+const newProjectBtn = document.getElementById('new-project-btn');
+newProjectBtn.addEventListener('click', () =>
+	newProject(newProjectInput.value)
+);
+
+function newProject(projectName) {
+	console.log(projectName);
+	projects.push(createProject(projectName, []));
+	renderProjects(projects);
+}
 
 function createTaskCardBtn(type, elClass, func) {
 	const button = createDomElement(type, elClass);

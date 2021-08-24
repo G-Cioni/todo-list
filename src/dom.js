@@ -27,6 +27,7 @@ function renderActiveProject(project) {
 }
 
 function renderProjects(projects) {
+	resetElements('.project-title');
 	projects.forEach((project) => appendProject(project));
 }
 
@@ -37,7 +38,7 @@ function appendTask(task) {
 }
 
 function renderTasks(tasks) {
-	resetTasks();
+	resetElements('.task-card');
 	appendAllTasks(tasks);
 }
 
@@ -85,9 +86,9 @@ function createDomElement(type, elClass) {
 	return element;
 }
 
-function resetTasks() {
-	let tasks = document.querySelectorAll('.task-card');
-	tasks.forEach((task) => task.remove());
+function resetElements(elClass) {
+	let elements = document.querySelectorAll(elClass);
+	elements.forEach((element) => element.remove());
 }
 
 function selectProject(project) {
