@@ -29,6 +29,7 @@ function deleteTask(e) {
 
 function toggleTaskDone(e) {
 	const index = e.path[0].dataset.doneBtn;
+	console.log(activeProject.tasks[index]);
 	activeProject.tasks[index].toggleDone();
 	renderTasks(activeProject.tasks);
 	save(projects);
