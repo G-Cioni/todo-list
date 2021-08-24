@@ -1,5 +1,6 @@
 export { activeProject, projects, createProject, setActiveProject };
 import { load } from './localStorage';
+import { createTask } from './task';
 
 function createProject(title, tasks) {
 	const proto = {
@@ -27,6 +28,15 @@ let projects = load();
 
 for (let i = 0; i < projects.length; i++) {
 	projects[i] = createProject(projects[i].title, projects[i].tasks);
+	for (let a = 0; a < projects[i].tasks.length; a++) {
+		console.log(projects[i].tasks[a]);
+		projects[i].tasks[a] = createTask(
+			projects[i].tasks[a].title,
+			projects[i].tasks[a].description,
+			projects[i].tasks[a].dueDate,
+			projects[i].tasks[a].priority
+		);
+	}
 }
 
 console.log(projects);
