@@ -7,16 +7,27 @@ export { quickAdd, createTaskCardBtn, deleteTask, toggleTaskDone };
 // Buttons inside the Task-Card are created inside createTaskCard() in "./dom.js"
 
 const createTaskBtn = document.getElementById('create-task-btn');
+createTaskBtn.addEventListener('click', () => showCreateTaskPopUp());
 
 const quickAddInput = document.getElementById('quick-add-input');
 const quickAddBtn = document.getElementById('quick-add-btn');
 
 quickAddBtn.addEventListener('click', () => quickAdd(activeProject));
 
+const fullAddBtn = document.getElementById('full-add-btn');
+fullAddBtn.addEventListener('click', () => fullAdd(activeProject));
+
 function createTaskCardBtn(type, elClass, func) {
 	const button = createDomElement(type, elClass);
 	button.addEventListener('click', (e) => func(e));
 	return button;
+}
+
+function showCreateTaskPopUp() {
+	const popUp = document.getElementById('new-task-popup');
+	if (popUp.style.display != 'block') {
+		popUp.style.display = 'block';
+	} else popUp.style.display = 'none';
 }
 
 function deleteTask(e) {
@@ -55,4 +66,18 @@ function quickAdd(project) {
 		renderTasks(project.tasks);
 		resetTextInput(quickAddInput);
 	}
+}
+
+function fullAdd(project) {
+	const task = createTask(
+		document.getElementById('pop-up-title-input').value,
+		document.getElementById('pop-up-description-input').value,
+		document.getElementById('pop-up-due-date-input').value,
+		document.getElementById('pop-up-priority-input').value,
+		undefined
+	);
+	project.addTask(task);
+	save(projects);
+	renderTasks(project.tasks);
+	resetTextInput(quickAddInput);
 }
