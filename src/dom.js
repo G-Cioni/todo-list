@@ -1,5 +1,12 @@
-export { renderProjects, renderTasks, selectProject, resetTextInput };
+export {
+	renderProjects,
+	renderTasks,
+	selectProject,
+	resetTextInput,
+	createDomElement,
+};
 import { setActiveProject } from './project';
+import { createTaskCardBtn, deleteTask } from './buttons';
 
 function appendProject(project) {
 	const index = document.getElementById('project-list').children.length - 1;
@@ -41,8 +48,8 @@ function appendAllTasks(tasks) {
 function createTaskCard(task) {
 	const index = document.getElementById('task-list').children.length - 1;
 	const card = createDomElement('div', 'task-card');
-	const doneBtn = createDomElement('button', 'doneBtn');
-	const deleteBtn = createDomElement('button', 'deleteBtn');
+	const doneBtn = createTaskCardBtn('button', 'doneBtn');
+	const deleteBtn = createTaskCardBtn('button', 'doneBtn', deleteTask);
 	const title = createDomElement('div', 'task-title');
 	title.textContent = task.title;
 	appendToParent(card, doneBtn, title, deleteBtn);

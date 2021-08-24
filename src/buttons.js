@@ -1,8 +1,10 @@
-import { renderTasks, resetTextInput } from './dom.js';
+import { renderTasks, resetTextInput, createDomElement } from './dom.js';
 import { createTask } from './task.js';
 import { activeProject, projects } from './project.js';
 import { save } from './localStorage';
-export { quickAdd };
+export { quickAdd, createTaskCardBtn, deleteTask };
+
+// Buttons inside the Task-Card are created inside createTaskCard() in "./dom.js"
 
 const createTaskBtn = document.getElementById('create-task-btn');
 
@@ -10,6 +12,21 @@ const quickAddInput = document.getElementById('quick-add-input');
 const quickAddBtn = document.getElementById('quick-add-btn');
 
 quickAddBtn.addEventListener('click', () => quickAdd(activeProject));
+
+function createTaskCardBtn(type, elClass, func) {
+	const button = createDomElement(type, elClass);
+	button.addEventListener('click', (e) => func(e));
+	return button;
+}
+
+function deleteTask(e) {
+	const index = e.path[0].dataset.deleteBtn;
+	activeProject.removeTask(activeProject.tasks[index]);
+	console.table(activeProject.tasks);
+	renderTasks(activeProject.tasks);
+	save(projects);
+}
+// have to make completeTask(). but first have to add method to project proto
 
 function quickAdd(project) {
 	if (quickAddInput.value !== '') {
@@ -19,7 +36,6 @@ function quickAdd(project) {
 			undefined,
 			undefined
 		);
-		console.log(project);
 		project.addTask(task);
 		save(projects);
 		renderTasks(project.tasks);
