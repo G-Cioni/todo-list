@@ -1,21 +1,22 @@
 export { renderProjects, renderTasks, selectProject, resetTextInput };
 import { setActiveProject } from './project';
 
-//can break this into smaller functions
-
 function appendProject(project) {
+	const index = document.getElementById('project-list').children.length - 1;
 	const list = document.getElementById('project-list');
-	const title = document.createElement('div');
-	title.classList.add('project-title');
+	const title = createDomElement('div', 'project-title');
 	title.textContent = project.title;
-	const index = document.getElementById('project-list').children.length;
-	title.dataset.project = index - 1;
+	title.dataset.project = index;
 	title.addEventListener('click', () => {
-		setActiveProject(project);
-		selectProject(project);
-		renderTasks(project.tasks);
+		renderActiveProject(project);
 	});
-	list.appendChild(title);
+	appendToParent(list, title);
+}
+
+function renderActiveProject(project) {
+	setActiveProject(project);
+	selectProject(project);
+	renderTasks(project.tasks);
 }
 
 function renderProjects(projects) {
