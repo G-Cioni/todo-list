@@ -79,9 +79,12 @@ main {
 	height: 2em;
 	align-items: center;
 }
-.task-card .task-done {
+
+/* it works if I add the class from the dev tool but doesn't work with classList.add */
+.task-card.task-done {
 	background-color: gray;
 }
+
 .task-card:hover {
 	background-color: rgb(0, 183, 255);
 }

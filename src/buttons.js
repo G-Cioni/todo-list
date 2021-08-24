@@ -31,15 +31,16 @@ function toggleTaskDone(e) {
 	const index = e.path[0].dataset.doneBtn;
 	const task = document.querySelector(`div[data-task="${index}"]`);
 	activeProject.tasks[index].toggleDone();
-	console.log(task);
-	console.log(activeProject.tasks[index]);
-
+	console.log(activeProject.tasks[index].isDone);
 	activeProject.tasks[index].isDone
 		? task.classList.add('task-done')
 		: task.classList.remove('task-done');
+	console.log(task);
+	console.log(activeProject.tasks[index].isDone);
 	renderTasks(activeProject.tasks);
 	save(projects);
 }
+
 function quickAdd(project) {
 	if (quickAddInput.value !== '') {
 		const task = createTask(
