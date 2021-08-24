@@ -29,8 +29,14 @@ function deleteTask(e) {
 
 function toggleTaskDone(e) {
 	const index = e.path[0].dataset.doneBtn;
-	console.log(activeProject.tasks[index]);
+	const task = document.querySelector(`div[data-task="${index}"]`);
 	activeProject.tasks[index].toggleDone();
+	console.log(task);
+	console.log(activeProject.tasks[index]);
+
+	activeProject.tasks[index].isDone
+		? task.classList.add('task-done')
+		: task.classList.remove('task-done');
 	renderTasks(activeProject.tasks);
 	save(projects);
 }
@@ -38,6 +44,7 @@ function quickAdd(project) {
 	if (quickAddInput.value !== '') {
 		const task = createTask(
 			quickAddInput.value,
+			undefined,
 			undefined,
 			undefined,
 			undefined
