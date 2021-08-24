@@ -2,7 +2,7 @@ import { renderTasks, resetTextInput, createDomElement } from './dom.js';
 import { createTask } from './task.js';
 import { activeProject, projects } from './project.js';
 import { save } from './localStorage';
-export { quickAdd, createTaskCardBtn, deleteTask };
+export { quickAdd, createTaskCardBtn, deleteTask, toggleTaskDone };
 
 // Buttons inside the Task-Card are created inside createTaskCard() in "./dom.js"
 
@@ -26,8 +26,13 @@ function deleteTask(e) {
 	renderTasks(activeProject.tasks);
 	save(projects);
 }
-// have to make completeTask(). but first have to add method to project proto
 
+function toggleTaskDone(e) {
+	const index = e.path[0].dataset.doneBtn;
+	activeProject.tasks[index].toggleDone();
+	renderTasks(activeProject.tasks);
+	save(projects);
+}
 function quickAdd(project) {
 	if (quickAddInput.value !== '') {
 		const task = createTask(
