@@ -54,8 +54,11 @@ function createTaskCard(task) {
 	card.appendChild(doneBtn);
 	card.appendChild(title);
 	card.appendChild(deleteBtn);
-	const index = document.getElementById('task-list').children.length;
-	card.dataset.task = index - 1;
+	const index = document.getElementById('task-list').children.length - 1;
+	card.dataset.task = index;
+	doneBtn.dataset.doneBtn = index;
+	deleteBtn.dataset.deleteBtn = index;
+
 	return card;
 }
 
