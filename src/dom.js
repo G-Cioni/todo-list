@@ -54,7 +54,19 @@ function createTaskCard(task) {
 	title.textContent = task.title;
 	appendToParent(card, doneBtn, title, deleteBtn);
 	assignDataIndex(index, card, doneBtn, deleteBtn);
+	card.addEventListener('click', () => renderTaskDetails(task));
 	return card;
+}
+
+function renderTaskDetails(task) {
+	const title = document.getElementById('details-title');
+	const description = document.getElementById('details-description');
+	const dueDate = document.getElementById('details-due-date');
+	const priority = document.getElementById('details-priority');
+	title.textContent = task.title;
+	description.textContent = task.description ? `${task.description}` : '';
+	dueDate.textContent = task.dueDate ? `Due Date: ${task.dueDate}` : '';
+	priority.textContent = task.priority ? `Priority: ${task.priority}` : '';
 }
 
 function assignDataIndex(index, card, doneBtn, deleteBtn) {
@@ -66,6 +78,7 @@ function assignDataIndex(index, card, doneBtn, deleteBtn) {
 function appendToParent(parent, ...args) {
 	args.forEach((arg) => parent.appendChild(arg));
 }
+
 function createDomElement(type, elClass) {
 	const element = document.createElement(`${type}`);
 	element.classList.add(`${elClass}`);
