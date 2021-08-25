@@ -115,7 +115,8 @@ main {
 .task-card:hover {
 	background-color: #b65466;
 }
-#quick-add {
+#quick-add,
+#new-project {
 	margin: 0 auto;
 }
 
