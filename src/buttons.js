@@ -29,7 +29,9 @@ newProjectBtn.addEventListener('click', () =>
 function newProject(projectName) {
 	console.log(projectName);
 	projects.push(createProject(projectName, []));
+	save(projects);
 	renderProjects(projects);
+	resetTextInput(newProjectInput);
 }
 
 function createTaskCardBtn(type, elClass, func) {
