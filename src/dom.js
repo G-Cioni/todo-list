@@ -52,6 +52,8 @@ function createTaskCard(task) {
 	const doneBtn = createTaskCardBtn('button', 'doneBtn', toggleTaskDone);
 	const deleteBtn = createTaskCardBtn('button', 'doneBtn', deleteTask);
 	const title = createDomElement('div', 'task-title');
+	doneBtn.textContent = '✓';
+	deleteBtn.textContent = '-';
 	title.textContent = task.title;
 	appendToParent(card, doneBtn, title, deleteBtn);
 	assignDataIndex(index, card, doneBtn, deleteBtn);

@@ -1,5 +1,6 @@
 html {
-	background-color: rgb(43, 43, 43);
+	background-color: #2d3142;
+	color: #fdfffc;
 }
 body {
 	display: grid;
@@ -14,16 +15,39 @@ h3 {
 	display: flex;
 	flex-direction: column;
 	grid-area: sidebar;
-	background-color: rgb(82, 82, 82);
+	background-color: #3e88a3;
 	height: 100vh;
 	border-radius: 1em;
 	margin-right: 1em;
 }
 
-#create-task-btn {
-	background-color: rgb(52, 130, 231);
-	border: 1px solid rgb(0, 183, 255);
+button {
+	background-color: #ffb347;
+	border: 2px solid #a54657;
+	color: #2d3142;
 	border-radius: 1em;
+	cursor: pointer;
+}
+
+input {
+	background-color: rgba(255, 255, 255, 0);
+	border: 1px solid #fdfffc;
+	border-radius: 1em;
+	padding: 0.3em;
+	color: #fdfffc;
+	outline: none;
+	text-align: center;
+}
+
+::placeholder {
+	color: #fdfffc9c;
+	opacity: 1; /* Firefox */
+}
+
+input:focus::placeholder {
+	color: transparent;
+}
+#create-task-btn {
 	margin: 1em;
 	height: 2em;
 }
@@ -50,7 +74,7 @@ main {
 	grid-template-areas:
 		'. . .'
 		'task-panel details-panel .';
-	background-color: rgb(65, 65, 65);
+	background-color: #2d3142;
 	height: 100vh;
 	margin: 0;
 	border-radius: 1em;
@@ -58,7 +82,7 @@ main {
 
 .panel {
 	height: 70vh;
-	background-color: rgb(73, 26, 26);
+	background-color: #a54657;
 	margin: 1.5em;
 	padding: 1em;
 	border-radius: 1em;
@@ -78,7 +102,7 @@ main {
 	justify-content: space-between;
 	margin-bottom: 1em;
 	border-radius: 1em;
-	border: 1px solid black;
+	border: 0px solid #fdfffc;
 	height: 2em;
 	align-items: center;
 }
@@ -89,17 +113,13 @@ main {
 }
 
 .task-card:hover {
-	background-color: rgb(0, 183, 255);
+	background-color: #b65466;
 }
 #quick-add {
 	margin: 0 auto;
 }
 
-.text-input {
-	height: 1.5em;
-	width: auto;
-}
-
 #details-panel {
 	grid-area: details-panel;
+	text-align: center;
 }
