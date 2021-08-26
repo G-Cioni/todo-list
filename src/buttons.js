@@ -96,5 +96,4 @@ function fullAdd(project) {
 	project.addTask(task);
 	save(projects);
 	renderTasks(project.tasks);
-	resetTextInput(quickAddInput);
 }

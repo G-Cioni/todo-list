@@ -1,16 +1,28 @@
+@font-face {
+	font-family: 'Roboto';
+	src: url('./Roboto-Regular.ttf'), url('./Roboto-Bold.ttf'),
+		url('./Roboto-LightItalic.ttf');
+	font-weight: 600;
+	font-style: normal;
+}
+
 html {
 	background-color: #2d3142;
 	color: #fdfffc;
+	font-family: Roboto;
 }
+
 body {
 	display: grid;
 	grid-auto-columns: minmax(14em, 17em) 1fr;
 	grid-template-areas: 'sidebar main ';
+	gap: 3em;
 }
 
 h3 {
 	text-align: center;
 }
+
 #sidebar {
 	display: flex;
 	flex-direction: column;
@@ -18,25 +30,40 @@ h3 {
 	background-color: #3e88a3;
 	height: 100vh;
 	border-radius: 1em;
-	margin-right: 1em;
+	padding: 1em 0.7em 0.5em 0.5em;
+	width: max-content;
+	box-shadow: 1px 1px 2px black;
 }
 
 button {
 	background-color: #ffb347;
-	border: 2px solid #a54657;
+	border: 0px solid #a54657;
 	color: #2d3142;
 	border-radius: 1em;
 	cursor: pointer;
 }
+.small-btn {
+	border-radius: 50%;
+	width: 2em;
+	height: 2em;
+	font-size: 0.8em;
+	padding: 0;
+}
 
-input {
+input,
+select {
 	background-color: rgba(255, 255, 255, 0);
 	border: 1px solid #fdfffc;
 	border-radius: 1em;
-	padding: 0.3em;
+	padding: 0.3em 1em;
 	color: #fdfffc;
 	outline: none;
-	text-align: center;
+	height: 1.7em;
+	margin: 0.5em;
+}
+
+option {
+	background-color: #3e88a3;
 }
 
 ::placeholder {
@@ -48,7 +75,7 @@ input:focus::placeholder {
 	color: transparent;
 }
 #create-task-btn {
-	margin: 1em;
+	margin: 1em 2em;
 	height: 2em;
 }
 
@@ -60,11 +87,15 @@ input:focus::placeholder {
 	transform: translate(-50%, -50%);
 	height: 20em;
 	width: 20em;
-	background-color: rgb(58, 58, 58);
+	background-color: #3e88a3;
+	border-radius: 1em;
+	padding: 1em;
+	box-shadow: 1px 1px 2px black;
 }
 
 .pop-up-input {
 	display: block;
+	width: 90%;
 }
 main {
 	grid-area: main;
@@ -86,6 +117,8 @@ main {
 	margin: 1.5em;
 	padding: 1em;
 	border-radius: 1em;
+	max-width: 20em;
+	box-shadow: 1px 1px 2px black;
 }
 
 #task-panel {
@@ -118,6 +151,7 @@ main {
 #quick-add,
 #new-project {
 	margin: 0 auto;
+	white-space: nowrap;
 }
 
 #details-panel {

@@ -49,8 +49,8 @@ function appendAllTasks(tasks) {
 function createTaskCard(task) {
 	const index = document.getElementById('task-list').children.length - 1;
 	const card = createDomElement('div', 'task-card');
-	const doneBtn = createTaskCardBtn('button', 'doneBtn', toggleTaskDone);
-	const deleteBtn = createTaskCardBtn('button', 'doneBtn', deleteTask);
+	const doneBtn = createTaskCardBtn('button', 'small-btn', toggleTaskDone);
+	const deleteBtn = createTaskCardBtn('button', 'small-btn', deleteTask);
 	const title = createDomElement('div', 'task-title');
 	doneBtn.textContent = '✓';
 	deleteBtn.textContent = '-';
@@ -98,6 +98,6 @@ function selectProject(project) {
 	projectTitle.textContent = project.title;
 }
 
-function resetTextInput(input) {
-	input.value = '';
+function resetTextInput(...args) {
+	args.forEach((arg) => (arg.value = ''));
 }

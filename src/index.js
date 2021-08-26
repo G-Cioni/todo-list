@@ -13,7 +13,6 @@ import { quickAdd } from './buttons';
 import { save, load } from './localStorage';
 
 renderProjects(projects);
-console.log(activeProject);
 renderTasks(activeProject.tasks);
 
 selectProject(activeProject);
