@@ -14,7 +14,7 @@
             <div id="new-project">
                 <label for="newProject"></label>
                 <input type="text" name="newProject" id="new-project-input" placeholder="Type to quickly add a project">            
-                <button id="new-project-btn">+</button>
+                <button id="new-project-btn" class="small-btn">+</button>
             </div>
         </div>
     </div>
@@ -41,7 +41,10 @@
                 <option value="3">!!!</option>
             </select>
         </div>
-        <button id="full-add-btn">Submit</button>
+        <div id="full-add-btns">
+            <button id="full-add-btn">Submit</button>
+            <button id="cancel-full-add-btn">Cancel</button>
+        </div>
     </form>
     <main>
         <div id="task-panel" class="panel"> 
@@ -49,7 +52,7 @@
             </div>
             <div id="quick-add">
                 <input type="text" id="quick-add-input"class="text-input" placeholder="Type to quickly add a task">
-                <button type="submit" id="quick-add-btn">+</button>
+                <button type="submit" id="quick-add-btn" class="small-btn">+</button>
             </div>
         </div>
         <div id="details-panel" class="panel">
