@@ -9,15 +9,33 @@
 <body>
     <div id="sidebar">
         <button id="create-task-btn">+ Create Task</button>
-        <div id="project-list">
-            <h3>Projects</h3>
+        <h3>Projects</h3>
             <div id="new-project">
                 <label for="newProject"></label>
                 <input type="text" name="newProject" id="new-project-input" placeholder="Type to quickly add a project">            
                 <button id="new-project-btn" class="small-btn">+</button>
             </div>
+        <div id="project-list">
+            
         </div>
     </div>
+    
+        <div id="task-panel" class="panel"> 
+            <div id="task-list"> <h3 id="project-title"></h3>
+            </div>
+            <div id="quick-add">
+                <input type="text" id="quick-add-input"class="text-input" placeholder="Type to quickly add a task">
+                <button type="submit" id="quick-add-btn" class="small-btn">+</button>
+            </div>
+        </div>
+        <div id="details-panel" class="panel">
+            <h3>Task Details</h3>
+            <h2 id="details-title">No task selected</h2>
+            <h4 id="details-description"></h4>
+            <h4 id="details-due-date"></h4>
+            <h4 id="details-priority"></h4>
+        </div>
+
     <form id="new-task-popup">
         <h2>Create a new Task</h2>
         <div>        
@@ -46,23 +64,6 @@
             <button id="cancel-full-add-btn">Cancel</button>
         </div>
     </form>
-    <main>
-        <div id="task-panel" class="panel"> 
-            <div id="task-list"> <h3 id="project-title"></h3>
-            </div>
-            <div id="quick-add">
-                <input type="text" id="quick-add-input"class="text-input" placeholder="Type to quickly add a task">
-                <button type="submit" id="quick-add-btn" class="small-btn">+</button>
-            </div>
-        </div>
-        <div id="details-panel" class="panel">
-            <h3>Task Details</h3>
-            <h2 id="details-title">No task selected</h2>
-            <h4 id="details-description"></h4>
-            <h4 id="details-due-date"></h4>
-            <h4 id="details-priority"></h4>
-        </div>
-    </main>
     <script src="bundle.js"></script>
 </body>
 </html>
