@@ -6,7 +6,7 @@ export {
 	createDomElement,
 };
 import { setActiveProject } from './project';
-import { createTaskCardBtn, deleteTask, toggleTaskDone } from './buttons';
+import { createCardBtn, deleteTask, toggleTaskDone } from './buttons';
 
 function appendProject(project) {
 	const index = document.getElementById('project-list').children.length - 1;
@@ -49,8 +49,8 @@ function appendAllTasks(tasks) {
 function createTaskCard(task) {
 	const index = document.getElementById('task-list').children.length - 1;
 	const card = createDomElement('div', 'task-card');
-	const doneBtn = createTaskCardBtn('button', 'small-btn', toggleTaskDone);
-	const deleteBtn = createTaskCardBtn('button', 'small-btn', deleteTask);
+	const doneBtn = createCardBtn('button', 'small-btn', toggleTaskDone);
+	const deleteBtn = createCardBtn('button', 'small-btn', deleteTask);
 	const title = createDomElement('div', 'task-title');
 	doneBtn.textContent = '✓';
 	deleteBtn.textContent = '-';

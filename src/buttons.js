@@ -7,7 +7,7 @@ import {
 import { createTask } from './task.js';
 import { activeProject, projects, createProject } from './project.js';
 import { save } from './localStorage';
-export { quickAdd, createTaskCardBtn, deleteTask, toggleTaskDone };
+export { quickAdd, createCardBtn, deleteTask, toggleTaskDone };
 
 const createTaskBtn = document.getElementById('create-task-btn');
 createTaskBtn.addEventListener('click', () => showCreateTaskPopUp());
@@ -34,7 +34,7 @@ function newProject(projectName) {
 	resetTextInput(newProjectInput);
 }
 
-function createTaskCardBtn(type, elClass, func) {
+function createCardBtn(type, elClass, func) {
 	const button = createDomElement(type, elClass);
 	button.addEventListener('click', (e) => func(e));
 	return button;
