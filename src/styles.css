@@ -10,13 +10,25 @@ html {
 	background-color: #2d3142;
 	color: #fdfffc;
 	font-family: Roboto;
+	display: grid;
+	grid-template-areas:
+		'. . .'
+		'. main .'
+		'. . . ';
 }
 
 body {
+	grid-area: main;
 	display: grid;
-	grid-auto-columns: minmax(14em, 17em) 1fr;
-	grid-template-areas: 'sidebar main ';
-	gap: 3em;
+	grid-template-rows: 1fr 1fr 1fr;
+	grid-template-areas:
+		'. . .'
+		'sidebar task-panel details-panel'
+		'. . . ';
+	background-color: #2d3142;
+	height: 100vh;
+	margin: 0;
+	border-radius: 1em;
 }
 
 h3 {
@@ -28,12 +40,16 @@ h3 {
 	flex-direction: column;
 	grid-area: sidebar;
 	background-color: #3e88a3;
-	height: 100vh;
+	height: 60vh;
 	border-radius: 1em;
-	padding: 1em 0.7em 0.5em 0.5em;
+	padding: 1em 0.7em 1em 0.5em;
 	width: max-content;
 	box-shadow: 1px 1px 2px black;
+	margin: 1.5em;
 }
+/* 
+padding: 1em;
+box-shadow: 1px 1px 2px black; */
 
 button {
 	background-color: #ffb347;
@@ -97,27 +113,14 @@ input:focus::placeholder {
 	display: block;
 	width: 90%;
 }
-main {
-	grid-area: main;
-	display: grid;
-	grid-template-rows: 2fr 1fr;
-	grid-template-columns: minmax(20em, 25em) minmax(22em, 25em) auto;
-	grid-template-areas:
-		'. . .'
-		'task-panel details-panel .';
-	background-color: #2d3142;
-	height: 100vh;
-	margin: 0;
-	border-radius: 1em;
-}
 
 .panel {
-	height: 70vh;
+	height: 60vh;
 	background-color: #a54657;
 	margin: 1.5em;
 	padding: 1em;
 	border-radius: 1em;
-	max-width: 20em;
+	width: 20em;
 	box-shadow: 1px 1px 2px black;
 }
 
@@ -126,8 +129,6 @@ main {
 	display: flex;
 	flex-direction: column;
 	justify-content: space-between;
-	margin-right: 0;
-	margin-left: 1em;
 }
 
 .task-card {
