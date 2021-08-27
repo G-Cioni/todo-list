@@ -24,7 +24,11 @@ function setActiveProject(project) {
 	activeProject = project;
 }
 
+function removeProject(project) {}
+
 let projects = load();
+
+console.log(projects);
 
 for (let i = 0; i < projects.length; i++) {
 	projects[i] = createProject(projects[i].title, projects[i].tasks);

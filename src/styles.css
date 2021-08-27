@@ -27,25 +27,35 @@ body {
 		'. . . ';
 	background-color: #2d3142;
 	height: 100vh;
-	margin: 0;
 	border-radius: 1em;
+	gap: 1em;
+	width: max-content;
+	align-self: center;
+	justify-self: center;
 }
 
 h3 {
 	text-align: center;
+	font-weight: bold;
 }
 
 #sidebar {
 	display: flex;
 	flex-direction: column;
+
+	justify-content: space-between;
 	grid-area: sidebar;
 	background-color: #3e88a3;
 	height: 60vh;
 	border-radius: 1em;
 	padding: 1em 0.7em 1em 0.5em;
-	width: max-content;
+	width: 16em;
 	box-shadow: 1px 1px 2px black;
-	margin: 1.5em;
+	margin: 1.5em 1em;
+}
+
+#project-list {
+	margin-bottom: auto;
 }
 /* 
 padding: 1em;
@@ -105,19 +115,40 @@ input:focus::placeholder {
 	width: 20em;
 	background-color: #3e88a3;
 	border-radius: 1em;
-	padding: 1em;
+	padding: 1em 1em 4em 2em;
 	box-shadow: 1px 1px 2px black;
 }
 
 .pop-up-input {
-	display: block;
+	width: 80%;
+	height: 2em;
+	border-radius: 1em;
+}
+
+#pop-up-priority-input {
+	display: flex;
+	justify-content: space-around;
+	border: 1px solid #fdfffc;
+	width: 88%;
+	margin-left: 0.4em;
+	border-radius: 0.8em;
+}
+
+#full-add-btns {
+	display: flex;
+	justify-content: space-between;
+	margin-top: 1em;
 	width: 90%;
+}
+
+.pop-up-btn {
+	padding: 0.4em 1em;
 }
 
 .panel {
 	height: 60vh;
 	background-color: #a54657;
-	margin: 1.5em;
+	margin: 1.5em 0;
 	padding: 1em;
 	border-radius: 1em;
 	width: 20em;
@@ -129,6 +160,7 @@ input:focus::placeholder {
 	display: flex;
 	flex-direction: column;
 	justify-content: space-between;
+	max-width: 16em;
 }
 
 .task-card {

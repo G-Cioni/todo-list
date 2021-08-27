@@ -9,14 +9,15 @@
 <body>
     <div id="sidebar">
         <button id="create-task-btn">+ Create Task</button>
-        <h3>Projects</h3>
-            <div id="new-project">
-                <label for="newProject"></label>
-                <input type="text" name="newProject" id="new-project-input" placeholder="Type to quickly add a project">            
-                <button id="new-project-btn" class="small-btn">+</button>
-            </div>
-        <div id="project-list">
+        
             
+        <div id="project-list">
+            <h3>Projects</h3>
+        </div>
+        <div id="new-project">
+            <label for="newProject"></label>
+            <input type="text" name="newProject" id="new-project-input" placeholder="Type to quickly add a project">            
+            <button id="new-project-btn" class="small-btn">+</button>
         </div>
     </div>
     
@@ -52,16 +53,31 @@
         </div>
         <div>        
             <label for="priority">Priority</label>
-            <select name="priority" class="pop-up-input" id="pop-up-priority-input">
-                <option value="0">No Priority</option>
-                <option value="1">!</option>
-                <option value="2">!!</option>
-                <option value="3">!!!</option>
-            </select>
+            <div id="pop-up-priority-input" class="pop-up-input">
+              <div>
+                <input type="radio" name="priority" value="0"checked>
+                <label for="priority">None</label>
+              </div>
+              
+              <div>
+                <input type="radio" name="priority" value="1">
+                <label for="priority">!</label>
+              </div>
+              
+              <div>
+                <input type="radio" name="priority" value="2">
+                <label for="priority">!!</label>
+              </div>
+
+              <div>
+                <input type="radio" name="priority" value="3">
+                <label for="priority">!!!</label>
+              </div>
+            </div>
         </div>
         <div id="full-add-btns">
-            <button id="full-add-btn">Submit</button>
-            <button id="cancel-full-add-btn">Cancel</button>
+            <button id="full-add-btn" class="pop-up-btn">Submit</button>
+            <button id="cancel-full-add-btn" class="pop-up-btn">Cancel</button>
         </div>
     </form>
     <script src="bundle.js"></script>
