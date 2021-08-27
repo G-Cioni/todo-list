@@ -6,18 +6,27 @@ export {
 	createDomElement,
 };
 import { setActiveProject } from './project';
-import { createCardBtn, deleteTask, toggleTaskDone } from './buttons';
+import {
+	createCardBtn,
+	deleteTask,
+	toggleTaskDone,
+	deleteProject,
+} from './buttons';
 
 function appendProject(project) {
 	const index = document.getElementById('project-list').children.length - 1;
 	const list = document.getElementById('project-list');
 	const title = createDomElement('div', 'project-title');
+	const card = createDomElement('div', 'project-card');
+	const deleteBtn = createCardBtn('button', 'small-btn', deleteProject);
 	title.textContent = project.title;
-	title.dataset.project = index;
-	title.addEventListener('click', () => {
+	card.dataset.project = index;
+	card.addEventListener('click', () => {
 		renderActiveProject(project);
 	});
-	appendToParent(list, title);
+	appendToParent(card, title, deleteBtn);
+	appendToParent(list, card);
+	assignProjectDataIndex(index, card, deleteBtn);
 }
 
 function renderActiveProject(project) {
@@ -27,7 +36,7 @@ function renderActiveProject(project) {
 }
 
 function renderProjects(projects) {
-	resetElements('.project-title');
+	resetElements('.project-card');
 	projects.forEach((project) => appendProject(project));
 }
 
@@ -56,7 +65,7 @@ function createTaskCard(task) {
 	deleteBtn.textContent = '-';
 	title.textContent = task.title;
 	appendToParent(card, doneBtn, title, deleteBtn);
-	assignDataIndex(index, card, doneBtn, deleteBtn);
+	assignTaskDataIndex(index, card, doneBtn, deleteBtn);
 	card.addEventListener('click', () => renderTaskDetails(task));
 	return card;
 }
@@ -72,10 +81,15 @@ function renderTaskDetails(task) {
 	priority.textContent = task.priority ? `Priority: ${task.priority}` : '';
 }
 
-function assignDataIndex(index, card, doneBtn, deleteBtn) {
+function assignTaskDataIndex(index, card, doneBtn, deleteBtn) {
 	card.dataset.task = index;
 	doneBtn.dataset.doneBtn = index;
 	deleteBtn.dataset.deleteBtn = index;
+}
+
+function assignProjectDataIndex(index, card, deleteBtn) {
+	card.dataset.project = index;
+	deleteBtn.dataset.deleteProjectBtn = index;
 }
 
 function appendToParent(parent, ...args) {

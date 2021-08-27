@@ -5,9 +5,14 @@ import {
 	createDomElement,
 } from './dom.js';
 import { createTask } from './task.js';
-import { activeProject, projects, createProject } from './project.js';
+import {
+	activeProject,
+	projects,
+	createProject,
+	removeProject,
+} from './project.js';
 import { save } from './localStorage';
-export { quickAdd, createCardBtn, deleteTask, toggleTaskDone };
+export { quickAdd, createCardBtn, deleteTask, toggleTaskDone, deleteProject };
 
 const createTaskBtn = document.getElementById('create-task-btn');
 createTaskBtn.addEventListener('click', () => showCreateTaskPopUp());
@@ -22,12 +27,12 @@ fullAddBtn.addEventListener('click', () => fullAdd(activeProject));
 
 const newProjectInput = document.getElementById('new-project-input');
 const newProjectBtn = document.getElementById('new-project-btn');
+
 newProjectBtn.addEventListener('click', () =>
 	newProject(newProjectInput.value)
 );
 
 function newProject(projectName) {
-	console.log(projectName);
 	projects.push(createProject(projectName, []));
 	save(projects);
 	renderProjects(projects);
@@ -50,9 +55,15 @@ function showCreateTaskPopUp() {
 function deleteTask(e) {
 	const index = e.path[0].dataset.deleteBtn;
 	activeProject.removeTask(activeProject.tasks[index]);
-	console.table(activeProject.tasks);
 	renderTasks(activeProject.tasks);
 	save(projects);
+}
+function deleteProject(e) {
+	const index = e.path[0].dataset.deleteProjectBtn;
+	console.log(e.path[0].dataset);
+	removeProject(index);
+	save(projects);
+	renderProjects(projects);
 }
 
 function toggleTaskDone(e) {

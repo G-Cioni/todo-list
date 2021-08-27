@@ -1,4 +1,10 @@
-export { activeProject, projects, createProject, setActiveProject };
+export {
+	activeProject,
+	projects,
+	createProject,
+	setActiveProject,
+	removeProject,
+};
 import { load } from './localStorage';
 import { createTask } from './task';
 
@@ -24,8 +30,10 @@ function setActiveProject(project) {
 	activeProject = project;
 }
 
-function removeProject(project) {}
-
+function removeProject(index) {
+	console.log(projects);
+	projects.splice(index, 1);
+}
 let projects = load();
 
 console.log(projects);
