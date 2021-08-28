@@ -4,9 +4,8 @@ export {
 	selectProject,
 	resetTextInput,
 	createDomElement,
-	appendProject,
 };
-import { setActiveProject } from './project';
+import { setActiveProject, projects } from './project';
 import {
 	createCardBtn,
 	deleteTask,
@@ -14,21 +13,25 @@ import {
 	deleteProject,
 } from './buttons';
 
-function appendProject(project) {
+function createProjectCard(project) {
 	const index = document.getElementById('project-list').children.length - 1;
-	const list = document.getElementById('project-list');
-	const title = createDomElement('div', 'project-title');
 	const card = createDomElement('div', 'project-card');
 	const deleteBtn = createCardBtn('button', 'small-btn', deleteProject);
+	const title = createDomElement('div', 'project-title');
 	deleteBtn.textContent = '-';
 	title.textContent = project.title;
-	card.dataset.project = index;
+	appendToParent(card, title, deleteBtn);
+	assignProjectDataIndex(index, card, deleteBtn);
 	card.addEventListener('click', () => {
 		renderActiveProject(project);
 	});
-	appendToParent(card, title, deleteBtn);
-	appendToParent(list, card);
-	assignProjectDataIndex(index, card, deleteBtn);
+	return card;
+}
+
+function appendProject(project) {
+	const list = document.getElementById('project-list');
+	const card = createProjectCard(project);
+	list.appendChild(card);
 }
 
 function createTaskCard(task) {
@@ -54,7 +57,7 @@ function renderActiveProject(project) {
 
 function renderProjects(projects) {
 	resetElements('.project-card');
-	projects.forEach((project) => appendProject(project));
+	appendAllProjects();
 }
 
 function appendTask(task) {
@@ -68,6 +71,9 @@ function renderTasks(tasks) {
 	appendAllTasks(tasks);
 }
 
+function appendAllProjects(project) {
+	projects.forEach((project) => appendProject(project));
+}
 function appendAllTasks(tasks) {
 	tasks.forEach((task) => appendTask(task));
 }

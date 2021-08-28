@@ -43,6 +43,7 @@ newProjectBtn.addEventListener('click', () =>
 
 // Creates a new Project
 function newProject(projectName) {
+	console.log(projects);
 	projects.push(createProject(projectName, []));
 	save(projects);
 	renderProjects(projects);
