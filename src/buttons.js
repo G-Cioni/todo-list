@@ -21,24 +21,27 @@ export {
 	deleteProject,
 };
 
+// Create Tasks button opens pop-up and allows a full task to be added
 const createTaskBtn = document.getElementById('create-task-btn');
 createTaskBtn.addEventListener('click', () => showCreateTaskPopUp());
 
+// Quickly add a task with only the title, but no other information
 const quickAddInput = document.getElementById('quick-add-input');
 const quickAddBtn = document.getElementById('quick-add-btn');
-
 quickAddBtn.addEventListener('click', () => quickAdd(activeProject));
 
+// Add a task with title, description, due date and priority
 const fullAddBtn = document.getElementById('full-add-btn');
 fullAddBtn.addEventListener('click', () => fullAdd(activeProject));
 
+// Add a new Project
 const newProjectInput = document.getElementById('new-project-input');
 const newProjectBtn = document.getElementById('new-project-btn');
-
 newProjectBtn.addEventListener('click', () =>
 	newProject(newProjectInput.value)
 );
 
+// Creates a new Project
 function newProject(projectName) {
 	projects.push(createProject(projectName, []));
 	save(projects);
@@ -46,12 +49,14 @@ function newProject(projectName) {
 	resetTextInput(newProjectInput);
 }
 
+// Create a card. Can be used for a task or a project
 function createCardBtn(type, elClass, func) {
 	const button = createDomElement(type, elClass);
 	button.addEventListener('click', (e) => func(e));
 	return button;
 }
 
+// Makes the "Create new task pop-up" visible
 function showCreateTaskPopUp() {
 	const popUp = document.getElementById('new-task-popup');
 	if (popUp.style.display != 'block') {
@@ -59,12 +64,15 @@ function showCreateTaskPopUp() {
 	} else popUp.style.display = 'none';
 }
 
+// Deletes a the relative task
 function deleteTask(e) {
 	const index = e.path[0].dataset.deleteBtn;
 	activeProject.removeTask(activeProject.tasks[index]);
 	renderTasks(activeProject.tasks);
 	save(projects);
 }
+
+// Deletes the relative Project
 function deleteProject(e) {
 	const index = e.path[0].dataset.deleteProjectBtn;
 	console.log(e.path[0].dataset);
@@ -73,6 +81,7 @@ function deleteProject(e) {
 	renderProjects(projects);
 }
 
+// NOT WORKING YET. Toggles a task as "Done"
 function toggleTaskDone(e) {
 	const index = e.path[0].dataset.doneBtn;
 	const task = document.querySelector(`div[data-task="${index}"]`);
@@ -87,6 +96,7 @@ function toggleTaskDone(e) {
 	save(projects);
 }
 
+// Use quickAdd text input to create a new task with only a title
 function quickAdd(project) {
 	if (quickAddInput.value !== '') {
 		const task = createTask(
@@ -103,6 +113,7 @@ function quickAdd(project) {
 	}
 }
 
+// Creates a task with a title, description, due date and priority
 function fullAdd(project) {
 	const task = createTask(
 		document.getElementById('pop-up-title-input').value,

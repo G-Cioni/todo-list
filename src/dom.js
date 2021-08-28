@@ -31,6 +31,21 @@ function appendProject(project) {
 	assignProjectDataIndex(index, card, deleteBtn);
 }
 
+function createTaskCard(task) {
+	const index = document.getElementById('task-list').children.length - 1;
+	const card = createDomElement('div', 'task-card');
+	const doneBtn = createCardBtn('button', 'small-btn', toggleTaskDone);
+	const deleteBtn = createCardBtn('button', 'small-btn', deleteTask);
+	const title = createDomElement('div', 'task-title');
+	doneBtn.textContent = '✓';
+	deleteBtn.textContent = '-';
+	title.textContent = task.title;
+	appendToParent(card, doneBtn, title, deleteBtn);
+	assignTaskDataIndex(index, card, doneBtn, deleteBtn);
+	card.addEventListener('click', () => renderTaskDetails(task));
+	return card;
+}
+
 function renderActiveProject(project) {
 	setActiveProject(project);
 	selectProject(project);
@@ -55,21 +70,6 @@ function renderTasks(tasks) {
 
 function appendAllTasks(tasks) {
 	tasks.forEach((task) => appendTask(task));
-}
-
-function createTaskCard(task) {
-	const index = document.getElementById('task-list').children.length - 1;
-	const card = createDomElement('div', 'task-card');
-	const doneBtn = createCardBtn('button', 'small-btn', toggleTaskDone);
-	const deleteBtn = createCardBtn('button', 'small-btn', deleteTask);
-	const title = createDomElement('div', 'task-title');
-	doneBtn.textContent = '✓';
-	deleteBtn.textContent = '-';
-	title.textContent = task.title;
-	appendToParent(card, doneBtn, title, deleteBtn);
-	assignTaskDataIndex(index, card, doneBtn, deleteBtn);
-	card.addEventListener('click', () => renderTaskDetails(task));
-	return card;
 }
 
 function renderTaskDetails(task) {
