@@ -12,7 +12,14 @@ import {
 	removeProject,
 } from './project.js';
 import { save } from './localStorage';
-export { quickAdd, createCardBtn, deleteTask, toggleTaskDone, deleteProject };
+export {
+	newProject,
+	quickAdd,
+	createCardBtn,
+	deleteTask,
+	toggleTaskDone,
+	deleteProject,
+};
 
 const createTaskBtn = document.getElementById('create-task-btn');
 createTaskBtn.addEventListener('click', () => showCreateTaskPopUp());
@@ -84,9 +91,9 @@ function quickAdd(project) {
 	if (quickAddInput.value !== '') {
 		const task = createTask(
 			quickAddInput.value,
-			undefined,
-			undefined,
-			undefined,
+			'No description defined',
+			'No due date defined',
+			'No priority defined',
 			undefined
 		);
 		project.addTask(task);

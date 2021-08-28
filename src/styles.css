@@ -101,8 +101,9 @@ input:focus::placeholder {
 	color: transparent;
 }
 #create-task-btn {
-	margin: 1em 2em;
 	height: 2em;
+	width: 50%;
+	margin: 0 5em 1.2em 5em;
 }
 
 #new-task-popup {
@@ -180,6 +181,19 @@ input:focus::placeholder {
 
 .task-card:hover {
 	background-color: #b65466;
+}
+
+.project-card {
+	display: flex;
+	justify-content: space-between;
+	margin-bottom: 1em;
+	border-radius: 1em;
+	border: 0px solid #fdfffc;
+	height: 2em;
+}
+
+.project-card:hover {
+	background-color: #579cb6;
 }
 #quick-add,
 #new-project {

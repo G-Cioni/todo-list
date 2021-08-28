@@ -4,6 +4,7 @@ export {
 	selectProject,
 	resetTextInput,
 	createDomElement,
+	appendProject,
 };
 import { setActiveProject } from './project';
 import {
@@ -19,6 +20,7 @@ function appendProject(project) {
 	const title = createDomElement('div', 'project-title');
 	const card = createDomElement('div', 'project-card');
 	const deleteBtn = createCardBtn('button', 'small-btn', deleteProject);
+	deleteBtn.textContent = '-';
 	title.textContent = project.title;
 	card.dataset.project = index;
 	card.addEventListener('click', () => {

@@ -7,7 +7,9 @@ export {
 };
 import { load } from './localStorage';
 import { createTask } from './task';
+import { newProject } from './buttons';
 
+// Project Factory Function
 function createProject(title, tasks) {
 	const proto = {
 		addTask: function (task) {
@@ -26,18 +28,25 @@ function createProject(title, tasks) {
 	return project;
 }
 
+// Sets the Active Project
 function setActiveProject(project) {
 	activeProject = project;
 }
 
+// Removes project from Projects array
 function removeProject(index) {
-	console.log(projects);
 	projects.splice(index, 1);
 }
+
+// Loads localStorage
 let projects = load();
 
-console.log(projects);
+// Creates default "Personal" project if projects array is empty when loading app
+if (projects[0] === undefined) {
+	newProject('Personal');
+}
 
+// Recreates all Projects and Tasks with working __proto__ after loading it from localStorage
 for (let i = 0; i < projects.length; i++) {
 	projects[i] = createProject(projects[i].title, projects[i].tasks);
 	for (let a = 0; a < projects[i].tasks.length; a++) {
@@ -51,7 +60,8 @@ for (let i = 0; i < projects.length; i++) {
 	}
 }
 
-const hello = createProject('hello', []);
+// Defines the active Project
 let activeProject;
 
+// Sets Active Project to the first one in projects array
 setActiveProject(projects[0]);
