@@ -1,3 +1,4 @@
+// Task Factory Function
 export function createTask(title, description, dueDate, priority, isDone) {
 	const proto = {
 		toggleDone: function () {
