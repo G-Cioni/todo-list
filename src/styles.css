@@ -42,7 +42,6 @@ h3 {
 #sidebar {
 	display: flex;
 	flex-direction: column;
-
 	justify-content: space-between;
 	grid-area: sidebar;
 	background-color: #3e88a3;
@@ -186,10 +185,11 @@ input:focus::placeholder {
 .project-card {
 	display: flex;
 	justify-content: space-between;
-	margin-bottom: 1em;
+	margin: 0 auto 1em auto;
 	border-radius: 1em;
 	border: 0px solid #fdfffc;
 	height: 2em;
+	width: 80%;
 }
 
 .project-card:hover {
