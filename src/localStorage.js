@@ -8,5 +8,6 @@ function save(projects) {
 
 // Loads from localStorage
 function load() {
-	return JSON.parse(localStorage.getItem('projects'));
+	let projects = JSON.parse(localStorage.getItem('projects'));
+	return projects === null ? [] : projects;
 }
