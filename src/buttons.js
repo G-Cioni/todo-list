@@ -61,10 +61,19 @@ function newProject(projectName) {
 
 // Uses input to edit project name
 function editProjectName(e) {
-	const input = document.getElementById('edit-project-name-input').value;
-	hiddenActiveProject.editName(input);
+	const input = document.getElementById('edit-project-name-input');
+	hiddenActiveProject.editName(input.value);
 	save(projects);
 	renderProjects(projects);
+	resetTextInput(input);
+	hidePopUp('edit-project-popup');
+}
+
+function hidePopUp(id) {
+	console.log(id);
+	const popUp = document.getElementById(id);
+	console.log(popUp);
+	popUp.style.display = 'none';
 }
 
 // Create a card. Can be used for a task or a project
