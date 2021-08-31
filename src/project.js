@@ -20,6 +20,9 @@ function createProject(title, tasks) {
 			const index = this.tasks.indexOf(task);
 			this.tasks.splice(index, 1);
 		},
+		editName: function (newTitle) {
+			this.title = newTitle;
+		},
 	};
 	const project = Object.assign(Object.create(proto), {
 		title,

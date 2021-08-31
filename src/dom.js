@@ -11,6 +11,7 @@ import {
 	deleteTask,
 	toggleTaskDone,
 	deleteProject,
+	showEditProjectPopUp,
 } from './buttons';
 
 // Assign Dataset to Project Card
@@ -25,9 +26,10 @@ function createProjectCard(project) {
 	const card = createDomElement('div', 'project-card');
 	const deleteBtn = createCardBtn('button', 'small-btn', deleteProject);
 	const title = createDomElement('div', 'project-title');
+	const editBtn = createCardBtn('button', 'small-btn', showEditProjectPopUp);
 	deleteBtn.textContent = '-';
 	title.textContent = project.title;
-	appendToParent(card, title, deleteBtn);
+	appendToParent(card, editBtn, title, deleteBtn);
 	assignProjectDataIndex(index, card, deleteBtn);
 	card.addEventListener('click', () => {
 		renderActiveProject(project);

@@ -19,6 +19,7 @@ export {
 	deleteTask,
 	toggleTaskDone,
 	deleteProject,
+	showEditProjectPopUp,
 };
 
 // Create Tasks button opens pop-up and allows a full task to be added
@@ -60,6 +61,14 @@ function createCardBtn(type, elClass, func) {
 // Makes the "Create new task pop-up" visible
 function showCreateTaskPopUp() {
 	const popUp = document.getElementById('new-task-popup');
+	if (popUp.style.display != 'block') {
+		popUp.style.display = 'block';
+	} else popUp.style.display = 'none';
+}
+
+// Makes the "Create edit project pop-up" visible
+function showEditProjectPopUp() {
+	const popUp = document.getElementById('edit-project-popup');
 	if (popUp.style.display != 'block') {
 		popUp.style.display = 'block';
 	} else popUp.style.display = 'none';
