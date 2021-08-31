@@ -48,6 +48,7 @@ let projects = load();
 // Creates default "Personal" project if projects array is empty when loading app
 if (projects[0] === undefined) {
 	newProject('Personal');
+	newProject('Work');
 }
 
 // Recreates all Projects and Tasks with working __proto__ after loading it from localStorage
