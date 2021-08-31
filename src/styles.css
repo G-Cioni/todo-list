@@ -133,7 +133,7 @@ input:focus::placeholder {
 	border-radius: 0.8em;
 }
 
-#full-add-btns {
+.pop-up-btns {
 	display: flex;
 	justify-content: space-between;
 	margin-top: 1em;

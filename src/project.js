@@ -1,8 +1,10 @@
 export {
 	activeProject,
+	hiddenActiveProject,
 	projects,
 	createProject,
 	setActiveProject,
+	setHiddenActiveProject,
 	removeProject,
 };
 import { load } from './localStorage';
@@ -35,7 +37,6 @@ function createProject(title, tasks) {
 function setActiveProject(project) {
 	activeProject = project;
 }
-
 // Removes project from Projects array
 function removeProject(index) {
 	projects.splice(index, 1);
@@ -68,3 +69,13 @@ let activeProject;
 
 // Sets Active Project to the first one in projects array
 setActiveProject(projects[0]);
+
+// Hidden active project
+
+let hiddenActiveProject;
+
+// Sets the Hidden active project (needed to edit project)
+
+function setHiddenActiveProject(project) {
+	hiddenActiveProject = project;
+}

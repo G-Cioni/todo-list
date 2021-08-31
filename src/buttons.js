@@ -10,6 +10,8 @@ import {
 	projects,
 	createProject,
 	removeProject,
+	setHiddenActiveProject,
+	hiddenActiveProject,
 } from './project.js';
 import { save } from './localStorage';
 export {
@@ -42,13 +44,27 @@ newProjectBtn.addEventListener('click', () =>
 	newProject(newProjectInput.value)
 );
 
+// Edit project name
+const editProjectNameSubmit = document.getElementById(
+	'edit-project-name-submit'
+);
+const editProjectNameInput = document.getElementById('edit-project-name-input');
+editProjectNameSubmit.addEventListener('click', (e) => editProjectName(e));
+
 // Creates a new Project
 function newProject(projectName) {
-	console.log(projects);
 	projects.push(createProject(projectName, []));
 	save(projects);
 	renderProjects(projects);
 	resetTextInput(newProjectInput);
+}
+
+// Uses input to edit project name
+function editProjectName(e) {
+	const input = document.getElementById('edit-project-name-input').value;
+	hiddenActiveProject.editName(input);
+	save(projects);
+	renderProjects(projects);
 }
 
 // Create a card. Can be used for a task or a project
@@ -65,28 +81,26 @@ function showCreateTaskPopUp() {
 		popUp.style.display = 'block';
 	} else popUp.style.display = 'none';
 }
-
 // Makes the "Create edit project pop-up" visible
-function showEditProjectPopUp() {
+function showEditProjectPopUp(e) {
 	const popUp = document.getElementById('edit-project-popup');
 	if (popUp.style.display != 'block') {
+		const index = e.path[0].dataset.deleteProjectBtn;
 		popUp.style.display = 'block';
+		setHiddenActiveProject(projects[index]);
 	} else popUp.style.display = 'none';
 }
 
 // Deletes a the relative task
 function deleteTask(e) {
-	const index = e.path[0].dataset.deleteBtn;
-	activeProject.removeTask(activeProject.tasks[index]);
+	activeProject.removeTask(activeProject.tasks[e]);
 	renderTasks(activeProject.tasks);
 	save(projects);
 }
 
 // Deletes the relative Project
 function deleteProject(e) {
-	const index = e.path[0].dataset.deleteProjectBtn;
-	console.log(e.path[0].dataset);
-	removeProject(index);
+	removeProject(e);
 	save(projects);
 	renderProjects(projects);
 }

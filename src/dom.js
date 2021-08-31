@@ -28,9 +28,10 @@ function createProjectCard(project) {
 	const title = createDomElement('div', 'project-title');
 	const editBtn = createCardBtn('button', 'small-btn', showEditProjectPopUp);
 	deleteBtn.textContent = '-';
+	editBtn.textContent = 'edit';
 	title.textContent = project.title;
 	appendToParent(card, editBtn, title, deleteBtn);
-	assignProjectDataIndex(index, card, deleteBtn);
+	assignProjectDataIndex(index, card, editBtn, deleteBtn);
 	card.addEventListener('click', () => {
 		renderActiveProject(project);
 	});
