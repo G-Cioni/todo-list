@@ -13,6 +13,7 @@ import {
 	deleteProject,
 	showEditProjectPopUp,
 } from './buttons';
+import { hiddenActiveTask, setHiddenActiveTask } from './task';
 
 // Assign Dataset to Project Card
 function assignProjectDataIndex(index, card, editBtn, deleteBtn) {
@@ -121,6 +122,7 @@ function renderTaskDetails(task) {
 	description.textContent = task.description ? `${task.description}` : '';
 	dueDate.textContent = task.dueDate ? `Due Date: ${task.dueDate}` : '';
 	priority.textContent = task.priority ? `Priority: ${task.priority}` : '';
+	setHiddenActiveTask(task);
 }
 
 // Appends multiple elements to a div

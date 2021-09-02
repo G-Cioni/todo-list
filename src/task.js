@@ -1,5 +1,7 @@
+export { hiddenActiveTask, createTask, setHiddenActiveTask };
+
 // Task Factory Function
-export function createTask(title, description, dueDate, priority, isDone) {
+function createTask(title, description, dueDate, priority, isDone) {
 	const proto = {
 		editTitle: function (newTitle) {
 			this.title = newTitle;
@@ -22,7 +24,17 @@ export function createTask(title, description, dueDate, priority, isDone) {
 		description,
 		dueDate,
 		priority,
-		isDone,
+		isDone: false,
 	});
 	return task;
+}
+
+// Hidden active task
+
+let hiddenActiveTask;
+
+// Sets the Hidden task project (needed to edit task)
+
+function setHiddenActiveTask(task) {
+	hiddenActiveTask = task;
 }

@@ -4,7 +4,7 @@ import {
 	resetTextInput,
 	createDomElement,
 } from './dom.js';
-import { createTask } from './task.js';
+import { hiddenActiveTask, createTask, setHiddenActiveTask } from './task.js';
 import {
 	activeProject,
 	projects,
@@ -35,7 +35,7 @@ quickAddBtn.addEventListener('click', () => quickAdd(activeProject));
 
 // Add a task with title, description, due date and priority
 const fullAddBtn = document.getElementById('full-add-btn');
-fullAddBtn.addEventListener('click', () => fullAdd(activeProject));
+fullAddBtn.addEventListener('click', () => createOrEditTask(activeProject));
 
 // Opens edit task pop-up
 
@@ -162,6 +162,12 @@ function quickAdd(project) {
 	}
 }
 
+// Decideds to create a new task or edit an existing one
+function createOrEditTask(project) {
+	const title = document.getElementById('pop-up-title').textContent;
+	title === 'Create New Task' ? fullAdd(project) : editTask(project);
+}
+
 // Creates a task with a title, description, due date and priority
 function fullAdd(project) {
 	const task = createTask(
@@ -177,4 +183,16 @@ function fullAdd(project) {
 }
 
 // Edit the task
-function editTask(project) {}
+function editTask(project) {
+	const title = document.getElementById('pop-up-title-input').value;
+	const description = document.getElementById('pop-up-description-input').value;
+	const dueDate = document.getElementById('pop-up-due-date-input').value;
+	const priority = document.getElementById('pop-up-priority-input').value;
+	console.log(hiddenActiveTask);
+	(title !== "")hiddenActiveTask.editTitle(title);
+	hiddenActiveTask.editDescription(description);
+	hiddenActiveTask.editDueDate(dueDate);
+	hiddenActiveTask.editPriority(priority);
+	save(projects);
+	renderTasks(project.tasks);
+}
