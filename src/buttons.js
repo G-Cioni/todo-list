@@ -26,7 +26,7 @@ export {
 
 // Create Tasks button opens pop-up and allows a full task to be added
 const createTaskBtn = document.getElementById('create-task-btn');
-createTaskBtn.addEventListener('click', () => showCreateTaskPopUp());
+createTaskBtn.addEventListener('click', () => showTaskPopUp('Create New Task'));
 
 // Quickly add a task with only the title, but no other information
 const quickAddInput = document.getElementById('quick-add-input');
@@ -37,6 +37,10 @@ quickAddBtn.addEventListener('click', () => quickAdd(activeProject));
 const fullAddBtn = document.getElementById('full-add-btn');
 fullAddBtn.addEventListener('click', () => fullAdd(activeProject));
 
+// Opens edit task pop-up
+
+const editTaskBtn = document.getElementById('edit-task-btn');
+editTaskBtn = addEventListener('click', () => showTaskPopUp('Edit Task'));
 // Add a new Project
 const newProjectInput = document.getElementById('new-project-input');
 const newProjectBtn = document.getElementById('new-project-btn');
@@ -84,11 +88,19 @@ function createCardBtn(type, elClass, func) {
 }
 
 // Makes the "Create new task pop-up" visible
-function showCreateTaskPopUp() {
-	const popUp = document.getElementById('new-task-popup');
+function showTaskPopUp(title) {
+	changePopUpTitle(title);
+	const popUp = document.getElementById('task-popup');
 	if (popUp.style.display != 'block') {
 		popUp.style.display = 'block';
 	} else popUp.style.display = 'none';
+}
+
+// Change pop-up title
+
+function changePopUpTitle(newTitle) {
+	const title = document.getElementById('pop-up-title');
+	title.textContent = newTitle;
 }
 // Makes the "Create edit project pop-up" visible
 function showEditProjectPopUp(e) {
@@ -112,6 +124,7 @@ function deleteProject(e) {
 	removeProject(e);
 	save(projects);
 	renderProjects(projects);
+	renderTasks(activeProject.tasks);
 }
 
 // NOT WORKING YET. Toggles a task as "Done"
