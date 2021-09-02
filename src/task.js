@@ -1,6 +1,18 @@
 // Task Factory Function
 export function createTask(title, description, dueDate, priority, isDone) {
 	const proto = {
+		editTitle: function (newTitle) {
+			this.title = newTitle;
+		},
+		editDescription: function (newDescription) {
+			this.description = newDescription;
+		},
+		editDueDate: function (newDueDate) {
+			this.dueDate = newDueDate;
+		},
+		editPriority: function (newPriority) {
+			this.priority = newPriority;
+		},
 		toggleDone: function () {
 			this.isDone = !this.isDone;
 		},

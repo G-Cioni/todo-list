@@ -15,9 +15,10 @@ import {
 } from './buttons';
 
 // Assign Dataset to Project Card
-function assignProjectDataIndex(index, card, deleteBtn) {
+function assignProjectDataIndex(index, card, editBtn, deleteBtn) {
 	card.dataset.project = index;
 	deleteBtn.dataset.deleteProjectBtn = index;
+	editBtn.dataset.editProjectBtn = index;
 }
 
 // Create a Project Card
@@ -78,7 +79,7 @@ function assignTaskDataIndex(index, card, doneBtn, deleteBtn) {
 
 // Create a new Task Card
 function createTaskCard(task) {
-	const index = document.getElementById('task-list').children.length - 1;
+	const index = document.getElementById('task-list').children.length - 2;
 	const card = createDomElement('div', 'task-card');
 	const doneBtn = createCardBtn('button', 'small-btn', toggleTaskDone);
 	const deleteBtn = createCardBtn('button', 'small-btn', deleteTask);

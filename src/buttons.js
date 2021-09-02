@@ -40,7 +40,7 @@ fullAddBtn.addEventListener('click', () => fullAdd(activeProject));
 // Opens edit task pop-up
 
 const editTaskBtn = document.getElementById('edit-task-btn');
-editTaskBtn = addEventListener('click', () => showTaskPopUp('Edit Task'));
+editTaskBtn.addEventListener('click', () => showTaskPopUp('Edit Task'));
 // Add a new Project
 const newProjectInput = document.getElementById('new-project-input');
 const newProjectBtn = document.getElementById('new-project-btn');
@@ -114,14 +114,17 @@ function showEditProjectPopUp(e) {
 
 // Deletes a the relative task
 function deleteTask(e) {
-	activeProject.removeTask(activeProject.tasks[e]);
+	const index = e.path[0].dataset.deleteBtn;
+	activeProject.removeTask(activeProject.tasks[index]);
 	renderTasks(activeProject.tasks);
 	save(projects);
 }
 
 // Deletes the relative Project
 function deleteProject(e) {
-	removeProject(e);
+	const index = e.path[0].dataset.deleteProjectBtn;
+	console.log(index);
+	removeProject(index);
 	save(projects);
 	renderProjects(projects);
 	renderTasks(activeProject.tasks);
@@ -172,3 +175,6 @@ function fullAdd(project) {
 	save(projects);
 	renderTasks(project.tasks);
 }
+
+// Edit the task
+function editTask(project) {}
