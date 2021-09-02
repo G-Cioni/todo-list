@@ -94,6 +94,15 @@ function showTaskPopUp(title) {
 	if (popUp.style.display != 'block') {
 		popUp.style.display = 'block';
 	} else popUp.style.display = 'none';
+	if (title === 'Edit Task') {
+		document.getElementById('pop-up-title-input').value =
+			hiddenActiveTask.title;
+		document.getElementById('pop-up-description-input').value =
+			hiddenActiveTask.description;
+		document.getElementById('pop-up-due-date-input').value =
+			hiddenActiveTask.dueDate;
+		document.getElementById('pop-up-priority-input').checked = true;
+	}
 }
 
 // Change pop-up title
@@ -166,6 +175,7 @@ function quickAdd(project) {
 function createOrEditTask(project) {
 	const title = document.getElementById('pop-up-title').textContent;
 	title === 'Create New Task' ? fullAdd(project) : editTask(project);
+	hidePopUp('task-popup');
 }
 
 // Creates a task with a title, description, due date and priority
