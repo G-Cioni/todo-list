@@ -189,7 +189,7 @@ function editTask(project) {
 	const dueDate = document.getElementById('pop-up-due-date-input').value;
 	const priority = document.getElementById('pop-up-priority-input').value;
 	console.log(hiddenActiveTask);
-	(title !== "")hiddenActiveTask.editTitle(title);
+	hiddenActiveTask.editTitle(title);
 	hiddenActiveTask.editDescription(description);
 	hiddenActiveTask.editDueDate(dueDate);
 	hiddenActiveTask.editPriority(priority);
