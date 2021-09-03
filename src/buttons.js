@@ -67,6 +67,7 @@ function newProject(projectName) {
 // Uses input to edit project name
 function editProjectName(e) {
 	const input = document.getElementById('edit-project-name-input');
+	console.log(hiddenActiveProject);
 	hiddenActiveProject.editName(input.value);
 	save(projects);
 	renderProjects(projects);
@@ -116,9 +117,11 @@ function changePopUpTitle(newTitle) {
 function showEditProjectPopUp(e) {
 	const popUp = document.getElementById('edit-project-popup');
 	if (popUp.style.display != 'block') {
-		const index = e.path[0].dataset.deleteProjectBtn;
+		const index = e.path[0].dataset.editProjectBtn;
+		console.log(index);
 		popUp.style.display = 'block';
 		setHiddenActiveProject(projects[index]);
+		console.log(projects[index]);
 	} else popUp.style.display = 'none';
 }
 
