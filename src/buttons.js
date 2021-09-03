@@ -38,10 +38,13 @@ quickAddBtn.addEventListener('click', () => quickAdd(activeProject));
 const fullAddBtn = document.getElementById('full-add-btn');
 fullAddBtn.addEventListener('click', () => createOrEditTask(activeProject));
 
+// Cancel new/edit task pop-up
+const taskPopUpCancel = document.getElementById('cancel-full-add-btn');
+taskPopUpCancel.addEventListener('click', () => hidePopUp('task-popup'));
 // Opens edit task pop-up
-
 const editTaskBtn = document.getElementById('edit-task-btn');
 editTaskBtn.addEventListener('click', () => showTaskPopUp('Edit Task'));
+
 // Add a new Project
 const newProjectInput = document.getElementById('new-project-input');
 const newProjectBtn = document.getElementById('new-project-btn');
@@ -56,6 +59,13 @@ const editProjectNameSubmit = document.getElementById(
 const editProjectNameInput = document.getElementById('edit-project-name-input');
 editProjectNameSubmit.addEventListener('click', (e) => editProjectName(e));
 
+// Cancel edit Project name
+const cancelEditProjectName = document.getElementById(
+	'edit-project-name-cancel'
+);
+cancelEditProjectName.addEventListener('click', () =>
+	hidePopUp('edit-project-popup')
+);
 // Creates a new Project
 function newProject(projectName) {
 	projects.push(createProject(projectName, []));
