@@ -204,6 +204,7 @@ input:focus::placeholder {
 }
 
 #details-panel {
+	display: none;
 	grid-area: details-panel;
 	text-align: center;
 }

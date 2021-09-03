@@ -4,6 +4,7 @@ export {
 	selectProject,
 	resetTextInput,
 	createDomElement,
+	renderTaskDetails,
 };
 import { setActiveProject, projects } from './project';
 import {
@@ -118,6 +119,8 @@ function renderTaskDetails(task) {
 	const description = document.getElementById('details-description');
 	const dueDate = document.getElementById('details-due-date');
 	const priority = document.getElementById('details-priority');
+	document.getElementById('details-panel').style.display = 'block';
+	console.log('hello');
 	title.textContent = task.title;
 	description.textContent = task.description ? `${task.description}` : '';
 	dueDate.textContent = task.dueDate ? `Due Date: ${task.dueDate}` : '';

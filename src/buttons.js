@@ -3,6 +3,7 @@ import {
 	renderTasks,
 	resetTextInput,
 	createDomElement,
+	renderTaskDetails,
 } from './dom.js';
 import { hiddenActiveTask, createTask, setHiddenActiveTask } from './task.js';
 import {
@@ -205,4 +206,5 @@ function editTask(project) {
 	hiddenActiveTask.editPriority(priority);
 	save(projects);
 	renderTasks(project.tasks);
+	renderTaskDetails(hiddenActiveTask);
 }
