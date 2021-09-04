@@ -44,7 +44,7 @@ h3 {
 	background-color: #3e88a3;
 	height: 60vh;
 	border-radius: 1em;
-	padding: 1em 0.7em 1em 0.5em;
+	padding: 1em;
 	box-shadow: 1px 1px 2px black;
 	margin: 1.5em 1em;
 }
@@ -52,9 +52,6 @@ h3 {
 #project-list {
 	margin-bottom: auto;
 }
-/* 
-padding: 1em;
-box-shadow: 1px 1px 2px black; */
 
 button {
 	background-color: #ffb347;
@@ -104,8 +101,7 @@ input:focus::placeholder {
 /* duplicate css code. must create class for buttons */
 #edit-task-btn {
 	height: 2em;
-	width: 50%;
-	margin: 0 5em 1.2em 5em;
+	padding: 0 1.5em 0 1.5em;
 }
 
 .pop-up {
@@ -172,10 +168,20 @@ input:focus::placeholder {
 .task-card {
 	display: flex;
 	justify-content: space-between;
+	border: 2px solid #fdfffc4b;
 	margin-bottom: 1em;
 	border-radius: 1em;
-	height: 2em;
+	height: 2.3em;
 	align-items: center;
+}
+.priority-1 {
+	border: 2px solid rgba(0, 128, 0, 0.356);
+}
+.priority-2 {
+	border: 2px solid rgba(223, 208, 0, 0.493);
+}
+.priority-3 {
+	border: 2px solid rgba(141, 0, 0, 0.596);
 }
 
 /* it works if I add the class from the dev tool but doesn't work with classList.add */
@@ -190,11 +196,11 @@ div .task-done {
 .project-card {
 	display: flex;
 	justify-content: space-between;
-	margin: 0 auto 1em auto;
+	border: 2px solid #fdfffc4b;
+	margin-bottom: 1em;
 	border-radius: 1em;
-	height: 2em;
-	width: 80%;
-	padding: 0.2em 0.5em 0em 0.5em;
+	height: 2.3em;
+	align-items: center;
 }
 
 .project-title {

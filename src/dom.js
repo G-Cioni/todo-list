@@ -86,6 +86,7 @@ function createTaskCard(task) {
 	const doneBtn = createCardBtn('button', 'small-btn', toggleTaskDone);
 	const deleteBtn = createCardBtn('button', 'small-btn', deleteTask);
 	const title = createDomElement('div', 'task-title');
+	assignTaskPriorityClass(task, card);
 	doneBtn.textContent = '✓';
 	deleteBtn.textContent = '-';
 	title.textContent = task.title;
@@ -93,6 +94,19 @@ function createTaskCard(task) {
 	assignTaskDataIndex(index, card, doneBtn, deleteBtn);
 	card.addEventListener('click', () => renderTaskDetails(task));
 	return card;
+}
+
+// Assign task priority class
+function assignTaskPriorityClass(task, card) {
+	console.log(task.priority);
+	if (task.priority === '1') {
+		card.classList.add('priority-1');
+	} else if (task.priority === '2') {
+		card.classList.add('priority-2');
+	} else if (task.priority === '3') {
+		card.classList.add('priority-3');
+	}
+	console.log(card.classList);
 }
 
 // Append a task card
@@ -124,7 +138,15 @@ function renderTaskDetails(task) {
 	title.textContent = task.title;
 	description.textContent = task.description ? `${task.description}` : '';
 	dueDate.textContent = task.dueDate ? `Due Date: ${task.dueDate}` : '';
-	priority.textContent = task.priority ? `Priority: ${task.priority}` : '';
+	if (task.priority === '0') {
+		priority.textContent = 'Priority: None';
+	} else if (task.priority === '1') {
+		priority.textContent = 'Priority: !';
+	} else if (task.priority === '2') {
+		priority.textContent = 'Priority: !!';
+	} else if (task.priority === '3') {
+		priority.textContent = 'Priority: !!!';
+	}
 	setHiddenActiveTask(task);
 }
 

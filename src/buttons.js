@@ -91,6 +91,11 @@ function hidePopUp(id) {
 	const popUp = document.getElementById(id);
 	console.log(popUp);
 	popUp.style.display = 'none';
+	resetTextInput(
+		document.getElementById('pop-up-title-input'),
+		document.getElementById('pop-up-description-input'),
+		document.getElementById('pop-up-due-date-input')
+	);
 }
 
 // Create a card. Can be used for a task or a project
@@ -195,6 +200,11 @@ function createOrEditTask(project) {
 	const title = document.getElementById('pop-up-title').textContent;
 	title === 'Create New Task' ? fullAdd(project) : editTask(project);
 	hidePopUp('task-popup');
+	resetTextInput(
+		document.getElementById('pop-up-title-input'),
+		document.getElementById('pop-up-description-input'),
+		document.getElementById('pop-up-due-date-input')
+	);
 }
 
 // Creates a task with a title, description, due date and priority
@@ -207,7 +217,7 @@ function fullAdd(project) {
 		document.getElementById('pop-up-title-input').value,
 		document.getElementById('pop-up-description-input').value,
 		document.getElementById('pop-up-due-date-input').value,
-		document.getElementById('pop-up-priority-input').value,
+		document.querySelector('input[name="priority"]:checked').value,
 		undefined
 	);
 	project.addTask(task);
@@ -221,8 +231,9 @@ function editTask(project) {
 	const title = document.getElementById('pop-up-title-input').value;
 	const description = document.getElementById('pop-up-description-input').value;
 	const dueDate = document.getElementById('pop-up-due-date-input').value;
-	const priority = document.getElementById('pop-up-priority-input').value;
-	console.log(hiddenActiveTask);
+	const priority = document.querySelector(
+		'input[name="priority"]:checked'
+	).value;
 	hiddenActiveTask.editTitle(title);
 	hiddenActiveTask.editDescription(description);
 	hiddenActiveTask.editDueDate(dueDate);
