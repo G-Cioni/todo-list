@@ -101,6 +101,13 @@ input:focus::placeholder {
 	margin: 0 5em 1.2em 5em;
 }
 
+/* duplicate css code. must create class for buttons */
+#edit-task-btn {
+	height: 2em;
+	width: 50%;
+	margin: 0 5em 1.2em 5em;
+}
+
 .pop-up {
 	display: none;
 	position: absolute;
@@ -172,8 +179,8 @@ input:focus::placeholder {
 }
 
 /* it works if I add the class from the dev tool but doesn't work with classList.add */
-.task-card.task-done {
-	background-color: gray;
+div .task-done {
+	background-color: gray I !important;
 }
 
 .task-card:hover {

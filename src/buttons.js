@@ -13,6 +13,7 @@ import {
 	removeProject,
 	setHiddenActiveProject,
 	hiddenActiveProject,
+	setActiveProject,
 } from './project.js';
 import { save } from './localStorage';
 export {
@@ -171,6 +172,10 @@ function toggleTaskDone(e) {
 // Use quickAdd text input to create a new task with only a title
 function quickAdd(project) {
 	if (quickAddInput.value !== '') {
+		if (projects[0] === undefined) {
+			newProject('Personal');
+			setActiveProject(projects[0]);
+		}
 		const task = createTask(
 			quickAddInput.value,
 			'No description defined',
@@ -194,6 +199,10 @@ function createOrEditTask(project) {
 
 // Creates a task with a title, description, due date and priority
 function fullAdd(project) {
+	if (projects[0] === undefined) {
+		newProject('Personal');
+		setActiveProject(projects[0]);
+	}
 	const task = createTask(
 		document.getElementById('pop-up-title-input').value,
 		document.getElementById('pop-up-description-input').value,
@@ -204,6 +213,7 @@ function fullAdd(project) {
 	project.addTask(task);
 	save(projects);
 	renderTasks(project.tasks);
+	renderTaskDetails(task);
 }
 
 // Edit the task
