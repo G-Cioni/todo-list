@@ -30,8 +30,8 @@ function createProjectCard(project) {
 	const deleteBtn = createCardBtn('button', 'small-btn', deleteProject);
 	const title = createDomElement('div', 'project-title');
 	const editBtn = createCardBtn('button', 'small-btn', showEditProjectPopUp);
-	deleteBtn.textContent = '-';
-	editBtn.textContent = 'edit';
+	deleteBtn.innerHTML = '&#10007;';
+	editBtn.innerHTML = '&#9998';
 	title.textContent = project.title;
 	appendToParent(card, editBtn, title, deleteBtn);
 	assignProjectDataIndex(index, card, editBtn, deleteBtn);
@@ -89,8 +89,8 @@ function createTaskCard(task) {
 	assignTaskPriorityClass(task, card);
 	taskDone(task, card);
 	console.log(card.classList);
-	doneBtn.textContent = '✓';
-	deleteBtn.textContent = '-';
+	doneBtn.innerHTML = '&#10003';
+	deleteBtn.innerHTML = '&#10007;';
 	title.textContent = task.title;
 	appendToParent(card, doneBtn, title, deleteBtn);
 	assignTaskDataIndex(index, card, doneBtn, deleteBtn);
