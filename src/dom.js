@@ -87,6 +87,8 @@ function createTaskCard(task) {
 	const deleteBtn = createCardBtn('button', 'small-btn', deleteTask);
 	const title = createDomElement('div', 'task-title');
 	assignTaskPriorityClass(task, card);
+	taskDone(task, card);
+	console.log(card.classList);
 	doneBtn.textContent = '✓';
 	deleteBtn.textContent = '-';
 	title.textContent = task.title;
@@ -106,7 +108,6 @@ function assignTaskPriorityClass(task, card) {
 	} else if (task.priority === '3') {
 		card.classList.add('priority-3');
 	}
-	console.log(card.classList);
 }
 
 // Append a task card
@@ -171,4 +172,12 @@ function resetElements(elClass) {
 // Resets text input
 function resetTextInput(...args) {
 	args.forEach((arg) => (arg.value = ''));
+}
+
+// Adds task-done class to task card
+
+function taskDone(task, card) {
+	if (task.isDone === true) {
+		card.classList.add('task-done');
+	}
 }

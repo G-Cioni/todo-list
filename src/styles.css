@@ -185,8 +185,9 @@ input:focus::placeholder {
 }
 
 /* it works if I add the class from the dev tool but doesn't work with classList.add */
-div .task-done {
-	background-color: gray I !important;
+.task-done {
+	background-color: #834c56;
+	text-decoration: line-through;
 }
 
 .task-card:hover {
