@@ -5,6 +5,7 @@ export {
 	resetTextInput,
 	createDomElement,
 	renderTaskDetails,
+	popUpFormValidation,
 };
 import { setActiveProject, projects } from './project';
 import {
@@ -88,7 +89,6 @@ function createTaskCard(task) {
 	const title = createDomElement('div', 'task-title');
 	card.classList.add(`priority-${task.priority}`);
 	taskDone(task, card);
-	console.log(card.classList);
 	doneBtn.innerHTML = '&#10003';
 	deleteBtn.innerHTML = '&#10007;';
 	title.textContent = task.title;
@@ -123,7 +123,6 @@ function renderTaskDetails(task) {
 	const dueDate = document.getElementById('details-due-date');
 	const priority = document.getElementById('details-priority');
 	document.getElementById('details-panel').style.display = 'block';
-	console.log('hello');
 	title.textContent = task.title;
 	description.textContent = task.description ? `${task.description}` : '';
 	dueDate.textContent = task.dueDate ? `Due Date: ${task.dueDate}` : '';
@@ -168,4 +167,48 @@ function taskDone(task, card) {
 	if (task.isDone === true) {
 		card.classList.add('task-done');
 	}
+}
+
+// Form validation
+
+function popUpFormValidation() {
+	const errorList = [];
+	const title = document.getElementById('pop-up-title-input').value;
+	const dueDate = document.getElementById('pop-up-due-date-input').value;
+	errorList.push(titleValidation(title));
+	errorList.push(dueDateValidation(dueDate));
+	showErrors(errorList);
+}
+
+// Title validation
+function titleValidation(title) {
+	console.log(title);
+	if (title === '') {
+		return 'Insert title';
+	}
+}
+
+// Due Date not in past
+function dueDateValidation(dueDate) {
+	const today = new Date().toISOString().slice(0, 10);
+	const inputDate =
+		dueDate !== '' ? new Date(dueDate).toISOString().slice(0, 10) : '';
+	console.log(today);
+	if (inputDate !== '' && inputDate < today) {
+		return 'Due Date is in the past';
+	}
+}
+// Show form Validation errors
+function showErrors(errorList) {
+	const errors = document.getElementById('errors');
+	console.log(errorList);
+	errors.textContent = errorList.join(' | ');
+	if (errors.textContent === ' | ') {
+		errors.textContent = '';
+	}
+}
+
+// Capitilize first letter
+function capitilize(string) {
+	return string.charAt(0).toUpperCase() + string.slice(1);
 }

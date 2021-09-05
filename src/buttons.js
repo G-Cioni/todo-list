@@ -4,6 +4,7 @@ import {
 	resetTextInput,
 	createDomElement,
 	renderTaskDetails,
+	popUpFormValidation,
 } from './dom.js';
 import { hiddenActiveTask, createTask, setHiddenActiveTask } from './task.js';
 import {
@@ -197,14 +198,18 @@ function quickAdd(project) {
 
 // Decideds to create a new task or edit an existing one
 function createOrEditTask(project) {
-	const title = document.getElementById('pop-up-title').textContent;
-	title === 'Create New Task' ? fullAdd(project) : editTask(project);
-	hidePopUp('task-popup');
-	resetTextInput(
-		document.getElementById('pop-up-title-input'),
-		document.getElementById('pop-up-description-input'),
-		document.getElementById('pop-up-due-date-input')
-	);
+	popUpFormValidation();
+	const errors = document.getElementById('errors');
+	if (errors.textcontent === undefined) {
+		const title = document.getElementById('pop-up-title').textContent;
+		title === 'Create New Task' ? fullAdd(project) : editTask(project);
+		hidePopUp('task-popup');
+		resetTextInput(
+			document.getElementById('pop-up-title-input'),
+			document.getElementById('pop-up-description-input'),
+			document.getElementById('pop-up-due-date-input')
+		);
+	}
 }
 
 // Creates a task with a title, description, due date and priority
