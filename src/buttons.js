@@ -119,7 +119,7 @@ function showTaskPopUp(title) {
 			hiddenActiveTask.description;
 		document.getElementById('pop-up-due-date-input').value =
 			hiddenActiveTask.dueDate;
-		document.getElementById('pop-up-priority-input').checked = true;
+		checkRadioBtn(hiddenActiveTask);
 	}
 }
 
@@ -134,7 +134,6 @@ function showEditProjectPopUp(e) {
 	const popUp = document.getElementById('edit-project-popup');
 	if (popUp.style.display != 'block') {
 		const index = e.path[0].dataset.editProjectBtn;
-		console.log(index);
 		popUp.style.display = 'block';
 		setHiddenActiveProject(projects[index]);
 		console.log(projects[index]);
@@ -228,17 +227,12 @@ function fullAdd(project) {
 
 // Edit the task
 function editTask(project) {
-	const checkedPriority = document.querySelector(
-		'input[name="priority"]:checked'
-	);
-
 	const title = document.getElementById('pop-up-title-input').value;
 	const description = document.getElementById('pop-up-description-input').value;
 	const dueDate = document.getElementById('pop-up-due-date-input').value;
-	const priority =
-		checkedPriority === null
-			? hiddenActiveTask.priority
-			: checkedPriority.value;
+	const priority = document.querySelector(
+		'input[name="priority"]:checked'
+	).value;
 	hiddenActiveTask.editTitle(title);
 	hiddenActiveTask.editDescription(description);
 	hiddenActiveTask.editDueDate(dueDate);
@@ -246,4 +240,9 @@ function editTask(project) {
 	save(projects);
 	renderTasks(project.tasks);
 	renderTaskDetails(hiddenActiveTask);
+}
+
+// Checks radio button with tasks previous selection
+function checkRadioBtn(task) {
+	document.querySelector(`input[value="${task.priority}"`).checked = true;
 }
