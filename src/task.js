@@ -24,7 +24,7 @@ function createTask(title, description, dueDate, priority, isDone) {
 		description,
 		dueDate,
 		priority,
-		isDone: false,
+		isDone,
 	});
 	return task;
 }
