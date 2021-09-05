@@ -228,12 +228,17 @@ function fullAdd(project) {
 
 // Edit the task
 function editTask(project) {
+	const checkedPriority = document.querySelector(
+		'input[name="priority"]:checked'
+	);
+
 	const title = document.getElementById('pop-up-title-input').value;
 	const description = document.getElementById('pop-up-description-input').value;
 	const dueDate = document.getElementById('pop-up-due-date-input').value;
-	const priority = document.querySelector(
-		'input[name="priority"]:checked'
-	).value;
+	const priority =
+		checkedPriority === null
+			? hiddenActiveTask.priority
+			: checkedPriority.value;
 	hiddenActiveTask.editTitle(title);
 	hiddenActiveTask.editDescription(description);
 	hiddenActiveTask.editDueDate(dueDate);
