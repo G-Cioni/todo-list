@@ -110,6 +110,7 @@ function showTaskPopUp(title) {
 	changePopUpTitle(title);
 	const popUp = document.getElementById('task-popup');
 	if (popUp.style.display != 'block') {
+		document.querySelector(`input[value="0"`).checked = true;
 		popUp.style.display = 'block';
 	} else popUp.style.display = 'none';
 	if (title === 'Edit Task') {
@@ -227,12 +228,15 @@ function fullAdd(project) {
 
 // Edit the task
 function editTask(project) {
+	const checkedPriority = document.querySelector(
+		'input[name="priority"]:checked'
+	);
+
 	const title = document.getElementById('pop-up-title-input').value;
 	const description = document.getElementById('pop-up-description-input').value;
 	const dueDate = document.getElementById('pop-up-due-date-input').value;
-	const priority = document.querySelector(
-		'input[name="priority"]:checked'
-	).value;
+	const priority = checkedPriority === null ? 0 : checkedPriority.value;
+
 	hiddenActiveTask.editTitle(title);
 	hiddenActiveTask.editDescription(description);
 	hiddenActiveTask.editDueDate(dueDate);
