@@ -86,7 +86,7 @@ function createTaskCard(task) {
 	const doneBtn = createCardBtn('button', 'small-btn', toggleTaskDone);
 	const deleteBtn = createCardBtn('button', 'small-btn', deleteTask);
 	const title = createDomElement('div', 'task-title');
-	assignTaskPriorityClass(task, card);
+	card.classList.add(`priority-${task.priority}`);
 	taskDone(task, card);
 	console.log(card.classList);
 	doneBtn.innerHTML = '&#10003';
@@ -96,18 +96,6 @@ function createTaskCard(task) {
 	assignTaskDataIndex(index, card, doneBtn, deleteBtn);
 	card.addEventListener('click', () => renderTaskDetails(task));
 	return card;
-}
-
-// Assign task priority class
-function assignTaskPriorityClass(task, card) {
-	console.log(task.priority);
-	if (task.priority === '1') {
-		card.classList.add('priority-1');
-	} else if (task.priority === '2') {
-		card.classList.add('priority-2');
-	} else if (task.priority === '3') {
-		card.classList.add('priority-3');
-	}
 }
 
 // Append a task card
