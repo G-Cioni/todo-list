@@ -130,9 +130,7 @@ function renderTaskDetails(task) {
 	title.textContent = task.title;
 	description.textContent = task.description ? `${task.description}` : '';
 	dueDate.textContent = task.dueDate ? `Due Date: ${task.dueDate}` : '';
-	if (task.priority === '0') {
-		priority.textContent = 'Priority: None';
-	} else if (task.priority === '1') {
+	if (task.priority === '1') {
 		priority.textContent = 'Priority: !';
 	} else if (task.priority === '2') {
 		priority.textContent = 'Priority: !!';
