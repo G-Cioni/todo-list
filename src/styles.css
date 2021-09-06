@@ -180,9 +180,19 @@ input:focus::placeholder {
 	box-shadow: 0 3px 0 0 #fdfffc4b;
 	margin-bottom: 1em;
 	border-radius: 1em;
-	height: 2.3em;
+	height: 1.7em;
 	align-items: center;
 }
+.project-card {
+	display: flex;
+	justify-content: space-between;
+	box-shadow: 0 3px 0 0 #fdfffc4b;
+	margin-bottom: 1em;
+	border-radius: 1em;
+	height: 1.7em;
+	align-items: center;
+}
+
 .priority-1 {
 	box-shadow: 0 3px 0 0 rgba(0, 128, 0, 0.356);
 }
@@ -201,16 +211,6 @@ input:focus::placeholder {
 
 .task-card:hover {
 	background-color: #b65466;
-}
-
-.project-card {
-	display: flex;
-	justify-content: space-between;
-	box-shadow: 0 3px 0 0 #fdfffc4b;
-	margin-bottom: 1em;
-	border-radius: 1em;
-	height: 2.3em;
-	align-items: center;
 }
 
 .project-title {
