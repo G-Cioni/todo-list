@@ -73,6 +73,7 @@ cancelEditProjectName.addEventListener('click', () =>
 function newProject(projectName) {
 	projects.push(createProject(projectName, []));
 	save(projects);
+	renderActiveProject(projects[projects.length - 1]);
 	renderProjects(projects);
 	resetTextInput(newProjectInput);
 }
@@ -157,11 +158,9 @@ function deleteTask(e) {
 function deleteProject(e) {
 	const index = parseInt(e.path[0].dataset.deleteProjectBtn);
 	if (activeProject === projects[index]) {
-		console.log(activeProject);
 		index === 0
 			? setActiveProject(projects[index + 1])
 			: setActiveProject(projects[index - 1]);
-		console.log(activeProject);
 	}
 	e.stopPropagation();
 	removeProject(index);

@@ -108,7 +108,9 @@ function appendTask(task) {
 
 // Append all task cards
 function appendAllTasks(tasks) {
-	tasks.forEach((task) => appendTask(task));
+	if (tasks !== undefined) {
+		tasks.forEach((task) => appendTask(task));
+	}
 }
 
 // Renders Projects
