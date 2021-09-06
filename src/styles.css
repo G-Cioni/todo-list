@@ -170,10 +170,14 @@ input:focus::placeholder {
 #task-panel {
 	grid-area: task-panel;
 	display: flex;
-	overflow: auto;
 	flex-direction: column;
 	justify-content: space-between;
 	max-width: 16em;
+}
+
+#task-list,
+#project-list {
+	overflow: auto;
 }
 
 .task-card {
@@ -222,10 +226,13 @@ input:focus::placeholder {
 .project-card:hover {
 	background-color: #579cb6;
 }
-#quick-add,
-#new-project {
-	margin: 0 auto;
+#quick-add {
+	margin: -0.8em auto 0 auto;
 	white-space: nowrap;
+}
+
+#new-project {
+	margin: 0.1em auto 0 auto;
 }
 
 #details-panel {
