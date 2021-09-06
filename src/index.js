@@ -42,7 +42,16 @@ if (projects[0] === undefined) {
 	projects[0].addTask(
 		createTask(
 			'Tasks',
-			'You can create tasks for each project to stay more organized',
+			'You can create tasks for each project to stay more organized. Either add a task quickly or click on "+ Create Task"',
+			undefined,
+			'0',
+			false
+		)
+	);
+	projects[0].addTask(
+		createTask(
+			'Complete and delete tasks',
+			'You can also set a task to done or completely remove a task by clicking the buttons on the relative task. Try it out now! first set this task to done and then delete it.',
 			undefined,
 			'0',
 			false
@@ -61,15 +70,6 @@ if (projects[0] === undefined) {
 		createTask(
 			'Task details',
 			'Every task can have a description a priority and a due date but only the title is always required',
-			undefined,
-			'0',
-			false
-		)
-	);
-	projects[0].addTask(
-		createTask(
-			'Complete and delete tasks',
-			'You can also set a task to done or completely remove a task by clicking the buttons on the relative task.',
 			undefined,
 			'0',
 			false
