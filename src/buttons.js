@@ -53,7 +53,7 @@ editTaskBtn.addEventListener('click', () => showTaskPopUp('Edit Task'));
 const newProjectInput = document.getElementById('new-project-input');
 const newProjectBtn = document.getElementById('new-project-btn');
 newProjectBtn.addEventListener('click', () =>
-	newProject(newProjectInput.value)
+	quickAddProject(newProjectInput.value)
 );
 
 // Edit project name
@@ -70,6 +70,13 @@ const cancelEditProjectName = document.getElementById(
 cancelEditProjectName.addEventListener('click', () =>
 	hidePopUp('edit-project-popup')
 );
+
+// Quickly add a project
+function quickAddProject(projectName) {
+	if (newProjectInput.value !== '' && newProjectInput.value.length < 26) {
+		newProject(projectName);
+	}
+}
 // Creates a new Project
 function newProject(projectName) {
 	projects.push(createProject(capitilize(projectName), []));
@@ -185,7 +192,7 @@ function toggleTaskDone(e) {
 
 // Use quickAdd text input to create a new task with only a title
 function quickAdd(project) {
-	if (quickAddInput.value !== '') {
+	if (quickAddInput.value !== '' && quickAddInput.value.length < 26) {
 		if (projects[0] === undefined) {
 			newProject('Personal');
 			setActiveProject(projects[0]);

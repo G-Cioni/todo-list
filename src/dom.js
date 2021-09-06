@@ -187,7 +187,7 @@ function popUpFormValidation() {
 function titleValidation(title) {
 	if (title === '') {
 		return 'Insert title';
-	}
+	} else if (title.length > 25) return 'Title max 25 characters';
 }
 
 // Due Date not in past
