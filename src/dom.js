@@ -6,6 +6,7 @@ export {
 	createDomElement,
 	renderTaskDetails,
 	popUpFormValidation,
+	renderActiveProject,
 };
 import { setActiveProject, projects } from './project';
 import {

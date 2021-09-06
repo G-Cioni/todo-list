@@ -5,6 +5,7 @@ import {
 	createDomElement,
 	renderTaskDetails,
 	popUpFormValidation,
+	renderActiveProject,
 } from './dom.js';
 import { hiddenActiveTask, createTask, setHiddenActiveTask } from './task.js';
 import {
@@ -88,9 +89,7 @@ function editProjectName(e) {
 }
 
 function hidePopUp(id) {
-	console.log(id);
 	const popUp = document.getElementById(id);
-	console.log(popUp);
 	popUp.style.display = 'none';
 	resetTextInput(
 		document.getElementById('pop-up-title-input'),
@@ -154,15 +153,19 @@ function deleteTask(e) {
 function deleteProject(e) {
 	const index = parseInt(e.path[0].dataset.deleteProjectBtn);
 	if (activeProject === projects[index]) {
-		console.log('hello');
+		console.log(activeProject);
 		index === 0
 			? setActiveProject(projects[index + 1])
 			: setActiveProject(projects[index - 1]);
+		console.log(activeProject);
 	}
+	e.stopPropagation();
 	removeProject(index);
 	save(projects);
 	renderProjects(projects);
-	renderTasks(activeProject.tasks);
+	activeProject !== undefined
+		? renderActiveProject(activeProject)
+		: renderActiveProject('', []);
 }
 
 // NOT WORKING YET. Toggles a task as "Done"
