@@ -137,6 +137,7 @@ function renderTaskDetails(task) {
 		priority.textContent = 'Priority: !!!';
 	}
 	setHiddenActiveTask(task);
+	console.log(hiddenActiveTask);
 }
 
 // Appends multiple elements to a div

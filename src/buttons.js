@@ -143,7 +143,11 @@ function showEditProjectPopUp(e) {
 
 // Deletes a the relative task
 function deleteTask(e) {
+	e.stopPropagation();
 	const index = e.path[0].dataset.deleteBtn;
+	if (hiddenActiveTask === activeProject.tasks[index]) {
+		document.getElementById('details-panel').style.display = 'none';
+	}
 	activeProject.removeTask(activeProject.tasks[index]);
 	renderTasks(activeProject.tasks);
 	save(projects);
@@ -170,6 +174,7 @@ function deleteProject(e) {
 
 // NOT WORKING YET. Toggles a task as "Done"
 function toggleTaskDone(e) {
+	e.stopPropagation();
 	const index = e.path[0].dataset.doneBtn;
 	const task = document.querySelector(`div[data-task="${index}"]`);
 	activeProject.tasks[index].toggleDone();
