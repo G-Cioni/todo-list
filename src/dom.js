@@ -206,6 +206,9 @@ function showErrors(errorList) {
 	if (errors.textContent === ' | ') {
 		errors.textContent = '';
 	}
+	if (errorList.includes(undefined)) {
+		errors.textContent = errors.textContent.replaceAll('|', '');
+	}
 }
 
 // Capitilize first letter
