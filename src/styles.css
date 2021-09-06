@@ -177,21 +177,20 @@ input:focus::placeholder {
 .task-card {
 	display: flex;
 	justify-content: space-between;
-	border: 2px solid #fdfffc4b;
+	box-shadow: 0 3px 0 0 #fdfffc4b;
 	margin-bottom: 1em;
 	border-radius: 1em;
 	height: 2.3em;
 	align-items: center;
 }
 .priority-1 {
-	/* box-shadow: 0 1px 0 0 rgba(0, 128, 0, 0.356); */
-	border: 2px solid rgba(0, 128, 0, 0.356);
+	box-shadow: 0 3px 0 0 rgba(0, 128, 0, 0.356);
 }
 .priority-2 {
-	border: 2px solid rgba(223, 208, 0, 0.493);
+	box-shadow: 0 3px 0 0 rgba(223, 208, 0, 0.493);
 }
 .priority-3 {
-	border: 2px solid rgba(141, 0, 0, 0.596);
+	box-shadow: 0 3px 0 0 rgba(141, 0, 0, 0.596);
 }
 
 /* it works if I add the class from the dev tool but doesn't work with classList.add */
@@ -207,7 +206,7 @@ input:focus::placeholder {
 .project-card {
 	display: flex;
 	justify-content: space-between;
-	border: 2px solid #fdfffc4b;
+	box-shadow: 0 3px 0 0 #fdfffc4b;
 	margin-bottom: 1em;
 	border-radius: 1em;
 	height: 2.3em;
