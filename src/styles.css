@@ -234,26 +234,10 @@ input:focus::placeholder {
 	text-align: center;
 }
 
-/* width */
 ::-webkit-scrollbar {
 	width: 0em;
 }
 
-/* Track */
-::-webkit-scrollbar-track {
-	background: #2d3142;
-}
-
-/* Handle */
-::-webkit-scrollbar-thumb {
-	background: #ffb347;
-	border-radius: 0.3em;
-}
-
-/* Handle on hover */
-::-webkit-scrollbar-thumb:hover {
-	background: #fdb858;
-}
 @media (max-width: 1000px) {
 	body {
 		grid-template-areas:

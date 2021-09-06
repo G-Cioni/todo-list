@@ -60,16 +60,7 @@ if (projects[0] === undefined) {
 	projects[0].addTask(
 		createTask(
 			'Details',
-			'In the panel from which you are currently reading you can view all the details of a selected task and also edit it.',
-			undefined,
-			'0',
-			false
-		)
-	);
-	projects[0].addTask(
-		createTask(
-			'Task details',
-			'Every task can have a description a priority and a due date but only the title is always required',
+			'In the panel from which you are currently reading you can view all the details of a selected task and also edit it. The only required field is the title',
 			undefined,
 			'0',
 			false
