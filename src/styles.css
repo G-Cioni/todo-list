@@ -118,6 +118,11 @@ input:focus::placeholder {
 	box-shadow: 1px 1px 2px black;
 }
 
+#errors {
+	font-weight: bold;
+	color: #ffb347;
+	margin-bottom: 1em;
+}
 #edit-project-popup {
 	display: none;
 }
