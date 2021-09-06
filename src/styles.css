@@ -196,13 +196,13 @@ input:focus::placeholder {
 }
 
 .priority-1 {
-	box-shadow: 0 3px 0 0 rgba(0, 128, 0, 0.356);
+	box-shadow: 0 3px 0 0 rgba(0, 128, 0, 0.349);
 }
 .priority-2 {
-	box-shadow: 0 3px 0 0 rgba(223, 208, 0, 0.493);
+	box-shadow: 0 3px 0 0 #ffb2478e;
 }
 .priority-3 {
-	box-shadow: 0 3px 0 0 rgba(141, 0, 0, 0.596);
+	box-shadow: 0 3px 0 0 rgba(141, 0, 0, 0.534);
 }
 
 /* it works if I add the class from the dev tool but doesn't work with classList.add */
