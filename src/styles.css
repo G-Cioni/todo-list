@@ -39,12 +39,13 @@ h3 {
 #sidebar {
 	display: flex;
 	flex-direction: column;
+	overflow: auto;
 	justify-content: space-between;
 	grid-area: sidebar;
 	background-color: #3e88a3;
 	height: 60vh;
 	border-radius: 1em;
-	padding: 1em;
+	padding: 0em 1em 1em 1em;
 	box-shadow: 1px 1px 2px black;
 	margin: 1.5em 1em;
 }
@@ -160,7 +161,7 @@ input:focus::placeholder {
 	height: 60vh;
 	background-color: #a54657;
 	margin: 1.5em 0;
-	padding: 1em;
+	padding: 0em 1em 1em 1em;
 	border-radius: 1em;
 	width: 20em;
 	box-shadow: 1px 1px 2px black;
@@ -169,6 +170,7 @@ input:focus::placeholder {
 #task-panel {
 	grid-area: task-panel;
 	display: flex;
+	overflow: auto;
 	flex-direction: column;
 	justify-content: space-between;
 	max-width: 16em;
@@ -232,6 +234,26 @@ input:focus::placeholder {
 	text-align: center;
 }
 
+/* width */
+::-webkit-scrollbar {
+	width: 0em;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+	background: #2d3142;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+	background: #ffb347;
+	border-radius: 0.3em;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+	background: #fdb858;
+}
 @media (max-width: 1000px) {
 	body {
 		grid-template-areas:
