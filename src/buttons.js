@@ -6,6 +6,7 @@ import {
 	renderTaskDetails,
 	popUpFormValidation,
 	renderActiveProject,
+	capitilize,
 } from './dom.js';
 import { hiddenActiveTask, createTask, setHiddenActiveTask } from './task.js';
 import {
@@ -71,7 +72,7 @@ cancelEditProjectName.addEventListener('click', () =>
 );
 // Creates a new Project
 function newProject(projectName) {
-	projects.push(createProject(projectName, []));
+	projects.push(createProject(capitilize(projectName), []));
 	save(projects);
 	renderActiveProject(projects[projects.length - 1]);
 	renderProjects(projects);
@@ -177,7 +178,6 @@ function toggleTaskDone(e) {
 	const index = e.path[0].dataset.doneBtn;
 	const task = document.querySelector(`div[data-task="${index}"]`);
 	activeProject.tasks[index].toggleDone();
-	console.log(activeProject.tasks[index].isDone);
 	activeProject.tasks[index].isDone
 		? task.classList.add('task-done')
 		: task.classList.remove('task-done');

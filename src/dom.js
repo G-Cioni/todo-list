@@ -7,6 +7,7 @@ export {
 	renderTaskDetails,
 	popUpFormValidation,
 	renderActiveProject,
+	capitilize,
 };
 import { setActiveProject, projects } from './project';
 import {
