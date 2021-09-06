@@ -187,7 +187,6 @@ function popUpFormValidation() {
 
 // Title validation
 function titleValidation(title) {
-	console.log(title);
 	if (title === '') {
 		return 'Insert title';
 	}
@@ -198,7 +197,6 @@ function dueDateValidation(dueDate) {
 	const today = new Date().toISOString().slice(0, 10);
 	const inputDate =
 		dueDate !== '' ? new Date(dueDate).toISOString().slice(0, 10) : '';
-	console.log(today);
 	if (inputDate !== '' && inputDate < today) {
 		return 'Due Date is in the past';
 	}
@@ -206,7 +204,6 @@ function dueDateValidation(dueDate) {
 // Show form Validation errors
 function showErrors(errorList) {
 	const errors = document.getElementById('errors');
-	console.log(errorList);
 	errors.textContent = errorList.join(' | ');
 	if (errors.textContent === ' | ') {
 		errors.textContent = '';

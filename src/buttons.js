@@ -82,7 +82,6 @@ function newProject(projectName) {
 // Uses input to edit project name
 function editProjectName(e) {
 	const input = document.getElementById('edit-project-name-input');
-	console.log(hiddenActiveProject);
 	hiddenActiveProject.editName(input.value);
 	save(projects);
 	renderProjects(projects);
@@ -139,7 +138,6 @@ function showEditProjectPopUp(e) {
 		const index = e.path[0].dataset.editProjectBtn;
 		popUp.style.display = 'block';
 		setHiddenActiveProject(projects[index]);
-		console.log(projects[index]);
 	} else popUp.style.display = 'none';
 }
 
@@ -181,8 +179,6 @@ function toggleTaskDone(e) {
 	activeProject.tasks[index].isDone
 		? task.classList.add('task-done')
 		: task.classList.remove('task-done');
-	console.log(task);
-	console.log(activeProject.tasks[index].isDone);
 	renderTasks(activeProject.tasks);
 	save(projects);
 }
@@ -208,12 +204,11 @@ function quickAdd(project) {
 	}
 }
 
-// Decideds to create a new task or edit an existing one
+// Decides to create a new task or edit an existing one
 function createOrEditTask(project) {
 	popUpFormValidation();
-
 	const errors = document.getElementById('errors');
-	if (errors.textcontent === '') {
+	if (errors.textContent === '') {
 		const title = document.getElementById('pop-up-title').textContent;
 		title === 'Create New Task' ? fullAdd(project) : editTask(project);
 		hidePopUp('task-popup');
