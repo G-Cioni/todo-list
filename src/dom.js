@@ -28,7 +28,7 @@ function assignProjectDataIndex(index, card, editBtn, deleteBtn) {
 
 // Create a Project Card
 function createProjectCard(project) {
-	const index = document.getElementById('project-list').children.length - 1;
+	const index = document.getElementById('project-list').children.length;
 	const card = createDomElement('div', 'project-card');
 	const deleteBtn = createCardBtn('button', 'small-btn', deleteProject);
 	const title = createDomElement('div', 'project-title');
@@ -84,7 +84,7 @@ function assignTaskDataIndex(index, card, doneBtn, deleteBtn) {
 
 // Create a new Task Card
 function createTaskCard(task) {
-	const index = document.getElementById('task-list').children.length - 2;
+	const index = document.getElementById('task-list').children.length;
 	const card = createDomElement('div', 'task-card');
 	const doneBtn = createCardBtn('button', 'small-btn', toggleTaskDone);
 	const deleteBtn = createCardBtn('button', 'small-btn', deleteTask);
