@@ -191,7 +191,7 @@ function quickAdd(project) {
 			quickAddInput.value,
 			'No description defined',
 			'No due date defined',
-			'No priority defined',
+			'0',
 			undefined
 		);
 		project.addTask(task);
