@@ -152,8 +152,13 @@ function deleteTask(e) {
 
 // Deletes the relative Project
 function deleteProject(e) {
-	const index = e.path[0].dataset.deleteProjectBtn;
-	console.log(index);
+	const index = parseInt(e.path[0].dataset.deleteProjectBtn);
+	if (activeProject === projects[index]) {
+		console.log('hello');
+		index === 0
+			? setActiveProject(projects[index + 1])
+			: setActiveProject(projects[index - 1]);
+	}
 	removeProject(index);
 	save(projects);
 	renderProjects(projects);
