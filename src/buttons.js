@@ -164,6 +164,7 @@ function deleteTask(e) {
 function deleteProject(e) {
 	const index = parseInt(e.path[0].dataset.deleteProjectBtn);
 	if (activeProject === projects[index]) {
+		document.getElementById('details-panel').style.display = 'none';
 		index === 0
 			? setActiveProject(projects[index + 1])
 			: setActiveProject(projects[index - 1]);
