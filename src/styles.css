@@ -290,10 +290,12 @@ input:focus::placeholder {
 	.panel {
 		height: max-content;
 		max-width: 16em;
+		max-height: 25em;
 		margin: 1em 0;
 	}
 	#sidebar {
 		height: max-content;
 		margin: 1em 0;
+		max-height: 25em;
 	}
 }
