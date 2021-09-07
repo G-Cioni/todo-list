@@ -222,7 +222,7 @@ input:focus::placeholder {
 }
 
 .panel-title {
-	margin: 0.7em;
+	margin: 1em 0.7em 0.7em 0.7em;
 }
 
 .project-card:hover {
