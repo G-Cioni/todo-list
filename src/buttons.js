@@ -56,6 +56,17 @@ newProjectBtn.addEventListener('click', () =>
 	quickAddProject(newProjectInput.value)
 );
 
+// Pop-up confirmation to delete a project
+const cancelProjectYesBtn = document.getElementById('delete-project-yes');
+cancelProjectYesBtn.addEventListener('click', (e) => deleteProject(e));
+
+const cancelProjectNoBtn = document.getElementById('delete-project-no');
+cancelProjectNoBtn.addEventListener(
+	'click',
+	() =>
+		(document.getElementById('delete-project-prompt').style.display = 'none')
+);
+
 // Edit project name
 const editProjectNameSubmit = document.getElementById(
 	'edit-project-name-submit'
@@ -176,6 +187,7 @@ function deleteProject(e) {
 	activeProject !== undefined
 		? renderActiveProject(activeProject)
 		: renderActiveProject('', []);
+	document.getElementById('delete-project-prompt').style.display = 'none';
 }
 
 // NOT WORKING YET. Toggles a task as "Done"

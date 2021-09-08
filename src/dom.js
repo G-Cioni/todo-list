@@ -30,7 +30,7 @@ function assignProjectDataIndex(index, card, editBtn, deleteBtn) {
 function createProjectCard(project) {
 	const index = document.getElementById('project-list').children.length;
 	const card = createDomElement('div', 'project-card');
-	const deleteBtn = createCardBtn('button', 'small-btn', deleteProject);
+	const deleteBtn = createCardBtn('button', 'small-btn', showDeleteProject);
 	const title = createDomElement('div', 'project-title');
 	const editBtn = createCardBtn('button', 'small-btn', showEditProjectPopUp);
 	deleteBtn.innerHTML = '&#10007;';
@@ -213,4 +213,9 @@ function showErrors(errorList) {
 // Capitilize first letter
 function capitilize(string) {
 	return string.charAt(0).toUpperCase() + string.slice(1);
+}
+
+// Show delete project prompt pop-up
+function showDeleteProject() {
+	document.getElementById('delete-project-prompt').style.display = 'block';
 }
