@@ -63,7 +63,7 @@ button {
 	font-size: 0.8em;
 	padding: 0;
 }
-
+textarea,
 input,
 select {
 	background-color: rgba(255, 255, 255, 0);
@@ -128,6 +128,9 @@ input:focus::placeholder {
 	border-radius: 1em;
 }
 
+#pop-up-description-input {
+	height: 6em;
+}
 #pop-up-priority-input {
 	display: flex;
 	justify-content: space-around;
