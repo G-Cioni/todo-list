@@ -74,6 +74,7 @@ select {
 	outline: none;
 	height: 1.7em;
 	margin: 0.5em;
+	resize: none;
 }
 
 option {
