@@ -179,7 +179,7 @@ function popUpFormValidation() {
 	const dueDate = document.getElementById('pop-up-due-date-input').value;
 	errorList.push(titleValidation(title));
 	errorList.push(dueDateValidation(dueDate));
-	showErrors(errorList);
+	showErrors(errorList, 'pop-up-errors');
 }
 
 // Title validation
@@ -199,8 +199,8 @@ function dueDateValidation(dueDate) {
 	}
 }
 // Show form Validation errors
-function showErrors(errorList) {
-	const errors = document.getElementById('pop-up-errors');
+function showErrors(errorList, id) {
+	const errors = document.getElementById(id);
 	errors.textContent = errorList.join(' | ');
 	if (errors.textContent === ' | ') {
 		errors.textContent = '';
