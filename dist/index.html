@@ -12,9 +12,9 @@
         <div id="project-list">
         </div>
         <div id="new-project">
-            <label for="newProject"></label>
             <input type="text" name="newProject" id="new-project-input" placeholder="Type to quickly add a project">            
             <button type="button" id="new-project-btn" class="small-btn">+</button>
+            <div id="add-project-errors" class="errors"></div>
         </div>
     </div>
     
@@ -29,6 +29,7 @@
             <div id="quick-add">
                 <input type="text" id="quick-add-input"class="text-input" placeholder="Type to quickly add a task">
                 <button type="button" id="quick-add-btn" class="small-btn">+</button>
+                <div id="add-task-errors" class="errors"></div>
             </div>
         </div>
 
@@ -67,7 +68,7 @@
     </form>
     <form id="task-popup" class="pop-up">
         <h2 id="pop-up-title">Create a new Task</h2>
-        <div id="pop-up-errors" class="errors"> </div>
+        <div id="pop-up-errors" class="errors"></div>
         <div>        
             <label for="title">Title</label>
             <input type="text" name="title" class="pop-up-input" id="pop-up-title-input">
