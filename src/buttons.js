@@ -229,7 +229,7 @@ function quickAdd(project) {
 // Decides to create a new task or edit an existing one
 function createOrEditTask(project) {
 	popUpFormValidation();
-	const errors = document.getElementById('errors');
+	const errors = document.getElementById('pop-up-errors');
 	if (errors.textContent === '') {
 		const title = document.getElementById('pop-up-title').textContent;
 		title === 'Create New Task' ? fullAdd(project) : editTask(project);

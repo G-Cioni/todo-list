@@ -200,7 +200,7 @@ function dueDateValidation(dueDate) {
 }
 // Show form Validation errors
 function showErrors(errorList) {
-	const errors = document.getElementById('errors');
+	const errors = document.getElementById('pop-up-errors');
 	errors.textContent = errorList.join(' | ');
 	if (errors.textContent === ' | ') {
 		errors.textContent = '';
