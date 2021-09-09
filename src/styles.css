@@ -235,6 +235,7 @@ input:focus::placeholder {
 #quick-add,
 #new-project {
 	margin: -0.2em auto 0 auto;
+	padding-bottom: 0.5em;
 }
 
 #details-panel {
