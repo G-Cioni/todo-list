@@ -152,8 +152,10 @@ function changePopUpTitle(newTitle) {
 // Makes the "Create edit project pop-up" visible
 function showEditProjectPopUp(e) {
 	const popUp = document.getElementById('edit-project-popup');
+	const input = document.getElementById('edit-project-name-input');
 	if (popUp.style.display != 'block') {
 		const index = e.path[0].dataset.editProjectBtn;
+		input.value = projects[index].title;
 		popUp.style.display = 'block';
 		setHiddenActiveProject(projects[index]);
 	} else popUp.style.display = 'none';
@@ -173,14 +175,14 @@ function deleteTask(e) {
 
 // Deletes the relative Project
 function deleteProject(e) {
-	const index = parseInt(e.path[0].dataset.deleteProjectBtn);
+	const index = parseInt(e.path[0].dataset.event);
 	if (activeProject === projects[index]) {
 		document.getElementById('details-panel').style.display = 'none';
 		index === 0
 			? setActiveProject(projects[index + 1])
 			: setActiveProject(projects[index - 1]);
 	}
-	e.stopPropagation();
+	console.log(index);
 	removeProject(index);
 	save(projects);
 	renderProjects(projects);
