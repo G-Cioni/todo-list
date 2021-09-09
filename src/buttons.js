@@ -7,6 +7,7 @@ import {
 	popUpFormValidation,
 	renderActiveProject,
 	capitilize,
+	quickAddValidation,
 } from './dom.js';
 import { hiddenActiveTask, createTask, setHiddenActiveTask } from './task.js';
 import {
@@ -84,6 +85,7 @@ cancelEditProjectName.addEventListener('click', () =>
 
 // Quickly add a project
 function quickAddProject(projectName) {
+	quickAddValidation(projectName, 'add-project-errors');
 	if (newProjectInput.value !== '' && newProjectInput.value.length < 26) {
 		newProject(projectName);
 	}
@@ -207,6 +209,8 @@ function toggleTaskDone(e) {
 
 // Use quickAdd text input to create a new task with only a title
 function quickAdd(project) {
+	console.log('hello');
+	quickAddValidation(quickAddInput.value, 'add-task-errors');
 	if (quickAddInput.value !== '' && quickAddInput.value.length < 26) {
 		if (projects[0] === undefined) {
 			newProject('Personal');

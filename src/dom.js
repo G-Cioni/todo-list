@@ -8,6 +8,7 @@ export {
 	popUpFormValidation,
 	renderActiveProject,
 	capitilize,
+	quickAddValidation,
 };
 import { setActiveProject, projects } from './project';
 import {
@@ -182,6 +183,10 @@ function popUpFormValidation() {
 	showErrors(errorList, 'pop-up-errors');
 }
 
+function quickAddValidation(title, errorsId) {
+	const errors = document.getElementById(errorsId);
+	errors.textContent = titleValidation(title);
+}
 // Title validation
 function titleValidation(title) {
 	if (title === '') {
