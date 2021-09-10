@@ -225,7 +225,7 @@ function showDeleteProject(e) {
 	e.stopPropagation();
 	// assigns the "yes" button on the delete project prompt the dataset of the project intended to be deleted
 	document.getElementById('delete-project-yes').dataset.event =
-		e.path[0].dataset.deleteProjectBtn;
+		e.composedPath()[0].dataset.deleteProjectBtn;
 
 	document.getElementById('delete-project-prompt').style.display = 'block';
 }

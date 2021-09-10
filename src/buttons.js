@@ -163,7 +163,8 @@ function showEditProjectPopUp(e) {
 	const popUp = document.getElementById('edit-project-popup');
 	const input = document.getElementById('edit-project-name-input');
 	if (popUp.style.display != 'block') {
-		const index = e.path[0].dataset.editProjectBtn;
+		const index = e.composedPath()[0].dataset.editProjectBtn;
+
 		input.value = projects[index].title;
 		popUp.style.display = 'block';
 		setHiddenActiveProject(projects[index]);
@@ -173,7 +174,7 @@ function showEditProjectPopUp(e) {
 // Deletes a the relative task
 function deleteTask(e) {
 	e.stopPropagation();
-	const index = e.path[0].dataset.deleteBtn;
+	const index = e.composedPath()[0].dataset.deleteBtn;
 	if (hiddenActiveTask === activeProject.tasks[index]) {
 		document.getElementById('details-panel').style.display = 'none';
 	}
@@ -199,7 +200,7 @@ function globalDeleteTask(index) {
 
 // Deletes the relative Project
 function deleteProject(e) {
-	const index = parseInt(e.path[0].dataset.event);
+	const index = parseInt(e.composedPath()[0].dataset.event);
 	if (activeProject === projects[index]) {
 		document.getElementById('details-panel').style.display = 'none';
 		index === 0
@@ -218,7 +219,7 @@ function deleteProject(e) {
 // NOT WORKING YET. Toggles a task as "Done"
 function toggleTaskDone(e) {
 	e.stopPropagation();
-	const index = e.path[0].dataset.doneBtn;
+	const index = e.composedPath()[0].dataset.doneBtn;
 	const task = document.querySelector(`div[data-task="${index}"]`);
 	activeProject.tasks[index].toggleDone();
 	activeProject.tasks[index].isDone
