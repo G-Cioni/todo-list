@@ -12,10 +12,11 @@
         <div id="project-list">
         </div>
         <div id="new-project">
-            <input type="text" name="newProject" id="new-project-input" placeholder="Type to quickly add a project">            
-            <button type="button" id="new-project-btn" class="small-btn">+</button>
-            <div id="add-project-errors" class="quick-add-errors"></div>
-
+            <form>
+                <input type="text" name="newProject" id="new-project-input" placeholder="Type to quickly add a project">            
+                <button type="submit" id="new-project-btn" class="small-btn">+</button>
+                <div id="add-project-errors" class="quick-add-errors"></div>
+            </form>
         </div>
     </div>
     
@@ -28,9 +29,11 @@
 
             <div id="task-list"></div>
             <div id="quick-add">
-                <input type="text" id="quick-add-input"class="text-input" placeholder="Type to quickly add a task">
-                <button type="button" id="quick-add-btn" class="small-btn">+</button>
-                <div id="add-task-errors" class="quick-add-errors"></div>
+                <form>
+                    <input type="text" id="quick-add-input"class="text-input" placeholder="Type to quickly add a task">
+                    <button type="submit" id="quick-add-btn" class="small-btn">+</button>
+                    <div id="add-task-errors" class="quick-add-errors"></div>
+                </form>
             </div>
         </div>
         <div id="details-panel-wrapper">
