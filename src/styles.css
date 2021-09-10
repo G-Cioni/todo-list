@@ -310,6 +310,12 @@ input:focus::placeholder {
 		max-height: 25em;
 		margin: 1em 0;
 	}
+	#details-panel-wrapper {
+		height: max-content;
+		max-width: 16em;
+		max-height: 25em;
+		margin: 1em 0;
+	}
 	#sidebar {
 		height: max-content;
 		margin: 1em 0;

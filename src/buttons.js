@@ -218,8 +218,8 @@ function quickAdd(project) {
 		}
 		const task = createTask(
 			quickAddInput.value,
-			'No description defined',
-			'No due date defined',
+			undefined,
+			undefined,
 			'0',
 			undefined
 		);
