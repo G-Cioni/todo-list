@@ -29,7 +29,7 @@ function assignProjectDataIndex(index, card, editBtn, deleteBtn) {
 
 // Create a Project Card
 function createProjectCard(project) {
-	const index = document.getElementById('project-list').children.length;
+	const index = document.getElementById('project-list').children.length - 1;
 	const card = createDomElement('div', 'project-card');
 	const deleteBtn = createCardBtn('button', 'small-btn', showDeleteProject);
 	const title = createDomElement('div', 'project-title');

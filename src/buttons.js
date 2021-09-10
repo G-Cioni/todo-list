@@ -227,7 +227,8 @@ function quickAdd(project, e) {
 			undefined,
 			undefined,
 			'0',
-			undefined
+			undefined,
+			Math.random(1)
 		);
 		project.addTask(task);
 		save(projects);
@@ -263,7 +264,8 @@ function fullAdd(project) {
 		document.getElementById('pop-up-description-input').value,
 		document.getElementById('pop-up-due-date-input').value,
 		document.querySelector('input[name="priority"]:checked').value,
-		undefined
+		undefined,
+		Math.random(1)
 	);
 	project.addTask(task);
 	save(projects);

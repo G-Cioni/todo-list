@@ -21,7 +21,8 @@ for (let i = 0; i < projects.length; i++) {
 			projects[i].tasks[a].description,
 			projects[i].tasks[a].dueDate,
 			projects[i].tasks[a].priority,
-			projects[i].tasks[a].isDone
+			projects[i].tasks[a].isDone,
+			projects[i].tasks[a].id
 		);
 	}
 }
