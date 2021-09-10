@@ -7,6 +7,7 @@ export {
 	setHiddenActiveProject,
 	removeProject,
 	allTasksProject,
+	createAllTasksArray,
 };
 import { load } from './localStorage';
 import { createTask } from './task';

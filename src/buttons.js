@@ -19,6 +19,7 @@ import {
 	hiddenActiveProject,
 	setActiveProject,
 	allTasksProject,
+	createAllTasksArray,
 } from './project.js';
 import { save } from './localStorage';
 export {
@@ -86,9 +87,7 @@ cancelEditProjectName.addEventListener('click', () =>
 
 // All Tasks Project
 const allTasksProjectCard = document.getElementById('all-tasks-project');
-allTasksProjectCard.addEventListener('click', () =>
-	renderActiveProject(allTasksProject)
-);
+allTasksProjectCard.addEventListener('click', () => renderAllTasksProject());
 
 // Quickly add a project
 function quickAddProject(projectName, e) {
@@ -312,4 +311,10 @@ function editTask(project) {
 // Checks radio button with tasks previous selection
 function checkRadioBtn(task) {
 	document.querySelector(`input[value="${task.priority}"`).checked = true;
+}
+
+// Renders "All Tasks" project
+function renderAllTasksProject() {
+	const allTasksProject = createProject('All Tasks', createAllTasksArray());
+	renderActiveProject(allTasksProject);
 }
