@@ -18,6 +18,8 @@ import {
 	setHiddenActiveProject,
 	hiddenActiveProject,
 	setActiveProject,
+	allTasksProject,
+	createAllTasksArray,
 } from './project.js';
 import { save } from './localStorage';
 export {
@@ -82,6 +84,10 @@ const cancelEditProjectName = document.getElementById(
 cancelEditProjectName.addEventListener('click', () =>
 	hidePopUp('edit-project-popup')
 );
+
+// All Tasks Project
+const allTasksProjectCard = document.getElementById('all-tasks-project');
+allTasksProjectCard.addEventListener('click', () => renderAllTasksProject());
 
 // Quickly add a project
 function quickAddProject(projectName, e) {
@@ -171,9 +177,24 @@ function deleteTask(e) {
 	if (hiddenActiveTask === activeProject.tasks[index]) {
 		document.getElementById('details-panel').style.display = 'none';
 	}
+	globalDeleteTask(index);
 	activeProject.removeTask(activeProject.tasks[index]);
 	renderTasks(activeProject.tasks);
 	save(projects);
+}
+
+// Deletes a task globally if working from "All Tasks" Project
+function globalDeleteTask(index) {
+	if (activeProject.title === 'All Tasks') {
+		const id = activeProject.tasks[index].id;
+		projects.forEach((project) => {
+			project.tasks.forEach((task) => {
+				if (task.id === id) {
+					project.removeTask(task);
+				}
+			});
+		});
+	}
 }
 
 // Deletes the relative Project
@@ -190,7 +211,7 @@ function deleteProject(e) {
 	renderProjects(projects);
 	activeProject !== undefined
 		? renderActiveProject(activeProject)
-		: renderActiveProject('', []);
+		: renderAllTasksProject();
 	document.getElementById('delete-project-prompt').style.display = 'none';
 }
 
@@ -221,7 +242,8 @@ function quickAdd(project, e) {
 			undefined,
 			undefined,
 			'0',
-			undefined
+			undefined,
+			Math.random(1)
 		);
 		project.addTask(task);
 		save(projects);
@@ -257,7 +279,8 @@ function fullAdd(project) {
 		document.getElementById('pop-up-description-input').value,
 		document.getElementById('pop-up-due-date-input').value,
 		document.querySelector('input[name="priority"]:checked').value,
-		undefined
+		undefined,
+		Math.random(1)
 	);
 	project.addTask(task);
 	save(projects);
@@ -288,4 +311,10 @@ function editTask(project) {
 // Checks radio button with tasks previous selection
 function checkRadioBtn(task) {
 	document.querySelector(`input[value="${task.priority}"`).checked = true;
+}
+
+// Renders "All Tasks" project
+function renderAllTasksProject() {
+	const allTasksProject = createProject('All Tasks', createAllTasksArray());
+	renderActiveProject(allTasksProject);
 }

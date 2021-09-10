@@ -219,6 +219,14 @@ input:focus::placeholder {
 	align-items: center;
 }
 
+#all-tasks-project {
+	box-shadow: 0 3px 0 0 #ffb347;
+	margin-bottom: 1em;
+	border-radius: 1em;
+	height: 1.7em;
+	text-align: center;
+}
+
 .priority-1 {
 	box-shadow: 0 3px 0 0 rgba(0, 128, 0, 0.349);
 }
@@ -241,7 +249,7 @@ input:focus::placeholder {
 .panel-title {
 	margin: 1em 0.7em 0.7em 0.7em;
 }
-
+#all-tasks-project:hover,
 .project-card:hover {
 	background-color: #579cb6;
 }

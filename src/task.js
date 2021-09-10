@@ -1,7 +1,7 @@
 export { hiddenActiveTask, createTask, setHiddenActiveTask };
 
 // Task Factory Function
-function createTask(title, description, dueDate, priority, isDone) {
+function createTask(title, description, dueDate, priority, isDone, id) {
 	const proto = {
 		editTitle: function (newTitle) {
 			this.title = newTitle;
@@ -25,6 +25,7 @@ function createTask(title, description, dueDate, priority, isDone) {
 		dueDate,
 		priority,
 		isDone,
+		id,
 	});
 	return task;
 }
