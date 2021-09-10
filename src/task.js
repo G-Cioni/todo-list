@@ -25,6 +25,7 @@ function createTask(title, description, dueDate, priority, isDone) {
 		dueDate,
 		priority,
 		isDone,
+		id: Math.random(1),
 	});
 	return task;
 }

@@ -90,3 +90,5 @@ renderTasks(activeProject.tasks);
 
 // Selects the active project and shows it on the Tasks-Panel
 selectProject(activeProject);
+
+console.log(projects);
