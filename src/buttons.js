@@ -211,7 +211,7 @@ function deleteProject(e) {
 	renderProjects(projects);
 	activeProject !== undefined
 		? renderActiveProject(activeProject)
-		: renderActiveProject('', []);
+		: renderAllTasksProject();
 	document.getElementById('delete-project-prompt').style.display = 'none';
 }
 
