@@ -184,7 +184,6 @@ function deleteProject(e) {
 			? setActiveProject(projects[index + 1])
 			: setActiveProject(projects[index - 1]);
 	}
-	console.log(index);
 	removeProject(index);
 	save(projects);
 	renderProjects(projects);
@@ -209,7 +208,6 @@ function toggleTaskDone(e) {
 
 // Use quickAdd text input to create a new task with only a title
 function quickAdd(project) {
-	console.log('hello');
 	quickAddValidation(quickAddInput.value, 'add-task-errors');
 	if (quickAddInput.value !== '' && quickAddInput.value.length < 26) {
 		if (projects[0] === undefined) {
