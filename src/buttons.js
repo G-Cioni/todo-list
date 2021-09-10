@@ -83,6 +83,12 @@ cancelEditProjectName.addEventListener('click', () =>
 	hidePopUp('edit-project-popup')
 );
 
+// All Tasks Project
+const allTasksProjectCard = document.getElementById('all-tasks-project');
+allTasksProjectCard.addEventListener('click', () =>
+	renderActiveProject(allTasksProject)
+);
+
 // Quickly add a project
 function quickAddProject(projectName, e) {
 	e.preventDefault();

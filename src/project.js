@@ -45,6 +45,16 @@ function removeProject(index) {
 // Loads localStorage
 let projects = load();
 
+// Creates an array with all tasks
+const allTasksArray = projects.reduce((array, project) => {
+	const task = createTask(project.title);
+	array.push(task);
+	return array;
+}, []);
+console.log(allTasksArray);
+// Creates allTasksProject
+// const allTasksProject;
+
 // Defines the active Project
 let activeProject;
 
