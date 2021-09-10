@@ -178,6 +178,18 @@ function deleteTask(e) {
 	if (hiddenActiveTask === activeProject.tasks[index]) {
 		document.getElementById('details-panel').style.display = 'none';
 	}
+	if (activeProject.title === 'All Tasks') {
+		const id = activeProject.tasks[index].id;
+		projects.forEach((project) => {
+			project.tasks.forEach((task) => {
+				console.log(task.id);
+				// if (task.id === id) {
+				// 	console.log(task.id);
+				// 	console.log(id);
+				// }
+			});
+		});
+	}
 	activeProject.removeTask(activeProject.tasks[index]);
 	renderTasks(activeProject.tasks);
 	save(projects);

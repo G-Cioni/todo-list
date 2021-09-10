@@ -37,6 +37,7 @@ function createProject(title, tasks) {
 // Sets the Active Project
 function setActiveProject(project) {
 	activeProject = project;
+	console.log(activeProject);
 }
 // Removes project from Projects array
 function removeProject(index) {
