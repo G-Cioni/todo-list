@@ -37,7 +37,6 @@ function createProject(title, tasks) {
 // Sets the Active Project
 function setActiveProject(project) {
 	activeProject = project;
-	console.log(activeProject);
 }
 // Removes project from Projects array
 function removeProject(index) {
@@ -59,11 +58,8 @@ function createAllTasksArray() {
 	}, []);
 }
 
-// Create array with all tasks
-let allTasksArray = createAllTasksArray();
-
 // Creates allTasksProject
-const allTasksProject = createProject('All Tasks', allTasksArray);
+let allTasksProject = createProject('All Tasks', createAllTasksArray());
 
 // Defines the active Project
 let activeProject;

@@ -178,21 +178,24 @@ function deleteTask(e) {
 	if (hiddenActiveTask === activeProject.tasks[index]) {
 		document.getElementById('details-panel').style.display = 'none';
 	}
+	globalDeleteTask(index);
+	activeProject.removeTask(activeProject.tasks[index]);
+	renderTasks(activeProject.tasks);
+	save(projects);
+}
+
+// Deletes a task globally if working from "All Tasks" Project
+function globalDeleteTask(index) {
 	if (activeProject.title === 'All Tasks') {
 		const id = activeProject.tasks[index].id;
 		projects.forEach((project) => {
 			project.tasks.forEach((task) => {
-				console.log(task.id);
-				// if (task.id === id) {
-				// 	console.log(task.id);
-				// 	console.log(id);
-				// }
+				if (task.id === id) {
+					project.removeTask(task);
+				}
 			});
 		});
 	}
-	activeProject.removeTask(activeProject.tasks[index]);
-	renderTasks(activeProject.tasks);
-	save(projects);
 }
 
 // Deletes the relative Project
