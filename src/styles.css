@@ -44,7 +44,7 @@ h3 {
 	background-color: #3e88a3;
 	height: 60vh;
 	border-radius: 1em;
-	padding: 0.2em 1em 0.5em 1em;
+	padding: 0.2em 1em 0.1em 1em;
 	box-shadow: 1px 1px 2px black;
 	margin: 1.5em 1em;
 }
@@ -120,6 +120,19 @@ input:focus::placeholder {
 	color: #ffb347;
 	margin-bottom: 1em;
 }
+.quick-add-errors {
+	font-weight: bold;
+	color: #ffb347;
+	height: 1.5em;
+	margin: 0;
+	padding: 0;
+	position: relative;
+	left: 1em;
+}
+#new-project-input,
+#quick-add-input {
+	margin-bottom: 0.3em;
+}
 #edit-project-popup {
 	display: none;
 }
@@ -160,7 +173,7 @@ input:focus::placeholder {
 	height: 60vh;
 	background-color: #a54657;
 	margin: 1.5em 0;
-	padding: 0.2em 1em 0.5em 1em;
+	padding: 0.2em 1em 0.1em 1em;
 	border-radius: 1em;
 	width: 20em;
 	box-shadow: 1px 1px 2px black;
@@ -231,11 +244,6 @@ input:focus::placeholder {
 
 .project-card:hover {
 	background-color: #579cb6;
-}
-#quick-add,
-#new-project {
-	margin: -0.2em auto 0 auto;
-	padding-bottom: 0.5em;
 }
 
 #details-panel {
