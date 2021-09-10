@@ -37,7 +37,7 @@ createTaskBtn.addEventListener('click', () => showTaskPopUp('Create New Task'));
 // Quickly add a task with only the title, but no other information
 const quickAddInput = document.getElementById('quick-add-input');
 const quickAddBtn = document.getElementById('quick-add-btn');
-quickAddBtn.addEventListener('click', () => quickAdd(activeProject));
+quickAddBtn.addEventListener('click', (e) => quickAdd(activeProject, e));
 
 // Add a task with title, description, due date and priority
 const fullAddBtn = document.getElementById('full-add-btn');
@@ -53,8 +53,8 @@ editTaskBtn.addEventListener('click', () => showTaskPopUp('Edit Task'));
 // Add a new Project
 const newProjectInput = document.getElementById('new-project-input');
 const newProjectBtn = document.getElementById('new-project-btn');
-newProjectBtn.addEventListener('click', () =>
-	quickAddProject(newProjectInput.value)
+newProjectBtn.addEventListener('click', (e) =>
+	quickAddProject(newProjectInput.value, e)
 );
 
 // Pop-up confirmation to delete a project
@@ -84,7 +84,8 @@ cancelEditProjectName.addEventListener('click', () =>
 );
 
 // Quickly add a project
-function quickAddProject(projectName) {
+function quickAddProject(projectName, e) {
+	e.preventDefault();
 	quickAddValidation(projectName, 'add-project-errors');
 	if (newProjectInput.value !== '' && newProjectInput.value.length < 26) {
 		newProject(projectName);
@@ -207,7 +208,8 @@ function toggleTaskDone(e) {
 }
 
 // Use quickAdd text input to create a new task with only a title
-function quickAdd(project) {
+function quickAdd(project, e) {
+	e.preventDefault();
 	quickAddValidation(quickAddInput.value, 'add-task-errors');
 	if (quickAddInput.value !== '' && quickAddInput.value.length < 26) {
 		if (projects[0] === undefined) {
