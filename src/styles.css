@@ -246,9 +246,13 @@ input:focus::placeholder {
 	background-color: #579cb6;
 }
 
+#details-panel-wrapper {
+	grid-area: details-panel;
+
+	width: 20em;
+}
 #details-panel {
 	display: none;
-	grid-area: details-panel;
 	text-align: center;
 }
 #internal-details-panel {
