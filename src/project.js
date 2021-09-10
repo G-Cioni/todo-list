@@ -54,7 +54,6 @@ function createAllTasksArray() {
 			createTask(task.title);
 			array.push(task);
 		});
-		console.log(array);
 		return array;
 	}, []);
 }
