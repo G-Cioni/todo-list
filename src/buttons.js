@@ -18,6 +18,7 @@ import {
 	setHiddenActiveProject,
 	hiddenActiveProject,
 	setActiveProject,
+	allTasksProject,
 } from './project.js';
 import { save } from './localStorage';
 export {

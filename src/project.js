@@ -6,6 +6,7 @@ export {
 	setActiveProject,
 	setHiddenActiveProject,
 	removeProject,
+	allTasksProject,
 };
 import { load } from './localStorage';
 import { createTask } from './task';
@@ -45,15 +46,23 @@ function removeProject(index) {
 // Loads localStorage
 let projects = load();
 
-// Creates an array with all tasks
-const allTasksArray = projects.reduce((array, project) => {
-	const task = createTask(project.title);
-	array.push(task);
-	return array;
-}, []);
-console.log(allTasksArray);
+// Returns an array with all tasks
+function createAllTasksArray() {
+	return projects.reduce((array, project) => {
+		project.tasks.forEach((task) => {
+			createTask(task.title);
+			array.push(task);
+		});
+		console.log(array);
+		return array;
+	}, []);
+}
+
+// Create array with all tasks
+let allTasksArray = createAllTasksArray();
+
 // Creates allTasksProject
-// const allTasksProject;
+const allTasksProject = createProject('All Tasks', allTasksArray);
 
 // Defines the active Project
 let activeProject;
