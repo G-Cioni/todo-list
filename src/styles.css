@@ -65,6 +65,28 @@ button {
 	font-size: 0.8em;
 	padding: 0;
 }
+.pop-up-btns {
+	display: flex;
+	justify-content: space-between;
+	margin-top: 1em;
+	width: 90%;
+}
+
+.pop-up-btn {
+	padding: 0.4em 1em;
+}
+
+#create-task-btn {
+	height: 2em;
+	width: 50%;
+	margin: -1em 5em 1.2em 5em;
+}
+
+#edit-task-btn {
+	height: 2em;
+	padding: 0 1.5em 0 1.5em;
+}
+
 textarea,
 input,
 select {
@@ -91,16 +113,27 @@ option {
 input:focus::placeholder {
 	color: transparent;
 }
-#create-task-btn {
+
+#new-project-input,
+#quick-add-input {
+	margin-bottom: 0.3em;
+}
+.pop-up-input {
+	width: 80%;
 	height: 2em;
-	width: 50%;
-	margin: -1em 5em 1.2em 5em;
+	border-radius: 1em;
 }
 
-/* duplicate css code. must create class for buttons */
-#edit-task-btn {
-	height: 2em;
-	padding: 0 1.5em 0 1.5em;
+#pop-up-description-input {
+	height: 6em;
+}
+#pop-up-priority-input {
+	display: flex;
+	justify-content: space-around;
+	border: 1px solid #fdfffc;
+	width: 88%;
+	margin-left: 0.4em;
+	border-radius: 0.8em;
 }
 
 .pop-up {
@@ -131,44 +164,14 @@ input:focus::placeholder {
 	position: relative;
 	left: 1em;
 }
-#new-project-input,
-#quick-add-input {
-	margin-bottom: 0.3em;
-}
+
 #edit-project-popup {
 	display: none;
-}
-.pop-up-input {
-	width: 80%;
-	height: 2em;
-	border-radius: 1em;
-}
-
-#pop-up-description-input {
-	height: 6em;
-}
-#pop-up-priority-input {
-	display: flex;
-	justify-content: space-around;
-	border: 1px solid #fdfffc;
-	width: 88%;
-	margin-left: 0.4em;
-	border-radius: 0.8em;
 }
 
 .priority-label {
 	position: relative;
 	bottom: 5px;
-}
-.pop-up-btns {
-	display: flex;
-	justify-content: space-between;
-	margin-top: 1em;
-	width: 90%;
-}
-
-.pop-up-btn {
-	padding: 0.4em 1em;
 }
 
 .panel {
@@ -187,6 +190,23 @@ input:focus::placeholder {
 	flex-direction: column;
 	justify-content: space-between;
 	max-width: 16em;
+}
+.panel-title {
+	margin: 1em 0.7em 0.7em 0.7em;
+}
+#details-panel-wrapper {
+	grid-area: details-panel;
+
+	width: 20em;
+}
+#details-panel {
+	display: none;
+	text-align: center;
+}
+#internal-details-panel {
+	display: flex;
+	flex-direction: column;
+	max-height: 100%;
 }
 #task-details-list,
 #task-list,
@@ -248,27 +268,9 @@ input:focus::placeholder {
 	background-color: #b65466;
 }
 
-.panel-title {
-	margin: 1em 0.7em 0.7em 0.7em;
-}
 #all-tasks-project:hover,
 .project-card:hover {
 	background-color: #579cb6;
-}
-
-#details-panel-wrapper {
-	grid-area: details-panel;
-
-	width: 20em;
-}
-#details-panel {
-	display: none;
-	text-align: center;
-}
-#internal-details-panel {
-	display: flex;
-	flex-direction: column;
-	max-height: 100%;
 }
 
 ::-webkit-scrollbar {
