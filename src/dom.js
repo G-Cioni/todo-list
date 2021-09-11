@@ -10,7 +10,7 @@ export {
 	capitilize,
 	quickAddValidation,
 };
-import { setActiveProject, projects } from './project';
+import { setActiveProject, projects, activeProject } from './project';
 import {
 	createCardBtn,
 	deleteTask,
@@ -189,9 +189,14 @@ function quickAddValidation(title, errorsId) {
 }
 // Title validation
 function titleValidation(title) {
-	if (title === '') {
+	console.log(activeProject.title);
+	if (activeProject.title === 'All Tasks') {
+		return 'Cannot add tasks to "All Tasks"';
+	} else if (title === '') {
 		return 'Insert title';
-	} else if (title.length > 25) return 'Title max 25 characters';
+	} else if (title.length > 25) {
+		return 'Title max 25 characters';
+	}
 }
 
 // Due Date not in past

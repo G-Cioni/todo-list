@@ -233,23 +233,25 @@ function toggleTaskDone(e) {
 function quickAdd(project, e) {
 	e.preventDefault();
 	quickAddValidation(quickAddInput.value, 'add-task-errors');
-	if (quickAddInput.value !== '' && quickAddInput.value.length < 26) {
-		if (projects[0] === undefined) {
-			newProject('Personal');
-			setActiveProject(projects[0]);
+	if (activeProject.title !== 'All Tasks') {
+		if (quickAddInput.value !== '' && quickAddInput.value.length < 26) {
+			if (projects[0] === undefined) {
+				newProject('Personal');
+				setActiveProject(projects[0]);
+			}
+			const task = createTask(
+				quickAddInput.value,
+				undefined,
+				undefined,
+				'0',
+				undefined,
+				Math.random(1)
+			);
+			project.addTask(task);
+			save(projects);
+			renderTasks(project.tasks);
+			resetTextInput(quickAddInput);
 		}
-		const task = createTask(
-			quickAddInput.value,
-			undefined,
-			undefined,
-			'0',
-			undefined,
-			Math.random(1)
-		);
-		project.addTask(task);
-		save(projects);
-		renderTasks(project.tasks);
-		resetTextInput(quickAddInput);
 	}
 }
 
@@ -271,22 +273,24 @@ function createOrEditTask(project) {
 
 // Creates a task with a title, description, due date and priority
 function fullAdd(project) {
-	if (projects[0] === undefined) {
-		newProject('Personal');
-		setActiveProject(projects[0]);
+	if (activeProject.title !== 'All Tasks') {
+		if (projects[0] === undefined) {
+			newProject('Personal');
+			setActiveProject(projects[0]);
+		}
+		const task = createTask(
+			document.getElementById('pop-up-title-input').value,
+			document.getElementById('pop-up-description-input').value,
+			document.getElementById('pop-up-due-date-input').value,
+			document.querySelector('input[name="priority"]:checked').value,
+			undefined,
+			Math.random(1)
+		);
+		project.addTask(task);
+		save(projects);
+		renderTasks(project.tasks);
+		renderTaskDetails(task);
 	}
-	const task = createTask(
-		document.getElementById('pop-up-title-input').value,
-		document.getElementById('pop-up-description-input').value,
-		document.getElementById('pop-up-due-date-input').value,
-		document.querySelector('input[name="priority"]:checked').value,
-		undefined,
-		Math.random(1)
-	);
-	project.addTask(task);
-	save(projects);
-	renderTasks(project.tasks);
-	renderTaskDetails(task);
 }
 
 // Edit the task
