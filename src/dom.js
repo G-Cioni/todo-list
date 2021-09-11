@@ -18,7 +18,7 @@ import {
 	deleteProject,
 	showEditProjectPopUp,
 } from './buttons';
-import { hiddenActiveTask, setHiddenActiveTask } from './task';
+import { setHiddenActiveTask } from './task';
 
 // Assign Dataset to Project Card
 function assignProjectDataIndex(index, card, editBtn, deleteBtn) {
@@ -176,23 +176,26 @@ function taskDone(task, card) {
 
 function popUpFormValidation() {
 	const errorList = [];
+	const popUpTitle = document.getElementById('pop-up-title').textContent;
 	const title = document.getElementById('pop-up-title-input').value;
 	const dueDate = document.getElementById('pop-up-due-date-input').value;
-	errorList.push(titleValidation(title));
+	activeProject.title === 'All Tasks' && popUpTitle === 'Create New Task'
+		? errorList.push('Cannot add tasks to "All Tasks"')
+		: errorList.push(titleValidation(title));
 	errorList.push(dueDateValidation(dueDate));
 	showErrors(errorList, 'pop-up-errors');
 }
 
 function quickAddValidation(title, errorsId) {
 	const errors = document.getElementById(errorsId);
-	errors.textContent = titleValidation(title);
+	errors.textContent =
+		activeProject.title === 'All Tasks' && errorsId === 'add-task-errors'
+			? 'Cannot add tasks to "All Tasks"'
+			: titleValidation(title);
 }
 // Title validation
 function titleValidation(title) {
-	console.log(activeProject.title);
-	if (activeProject.title === 'All Tasks') {
-		return 'Cannot add tasks to "All Tasks"';
-	} else if (title === '') {
+	if (title === '') {
 		return 'Insert title';
 	} else if (title.length > 25) {
 		return 'Title max 25 characters';
