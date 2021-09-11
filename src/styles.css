@@ -231,6 +231,13 @@ input:focus::placeholder {
 	height: 1.7em;
 	align-items: center;
 }
+
+#all-tasks-title {
+	font-weight: bold;
+	position: relative;
+	top: 0.3em;
+}
+
 .project-card {
 	display: flex;
 	justify-content: space-between;
