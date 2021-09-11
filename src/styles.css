@@ -273,11 +273,13 @@ input:focus::placeholder {
 
 .task-card:hover {
 	background-color: #b65466;
+	cursor: pointer;
 }
 
 #all-tasks-project:hover,
 .project-card:hover {
 	background-color: #579cb6;
+	cursor: pointer;
 }
 
 ::-webkit-scrollbar {
