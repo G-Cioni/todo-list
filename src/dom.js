@@ -10,7 +10,12 @@ export {
 	capitilize,
 	quickAddValidation,
 };
-import { setActiveProject, projects, activeProject } from './project';
+import {
+	setActiveProject,
+	projects,
+	activeProject,
+	removeProject,
+} from './project';
 import {
 	createCardBtn,
 	deleteTask,
@@ -236,9 +241,16 @@ function capitilize(string) {
 // Show delete project prompt pop-up
 function showDeleteProject(e) {
 	e.stopPropagation();
-	// assigns the "yes" button on the delete project prompt the dataset of the project intended to be deleted
-	document.getElementById('delete-project-yes').dataset.event =
-		e.composedPath()[0].dataset.deleteProjectBtn;
+	const key = Object.keys(e.composedPath()[0].dataset)[0];
+	const index = parseInt(e.composedPath()[0].dataset[key]);
+	// Only deletes an empty project without prompt
+	if (projects[index].tasks[0] === undefined) {
+		deleteProject(e);
+	} else {
+		// assigns the "yes" button on the delete project prompt the dataset of the project intended to be deleted
+		document.getElementById('delete-project-yes').dataset.event =
+			e.composedPath()[0].dataset.deleteProjectBtn;
 
-	document.getElementById('delete-project-prompt').style.display = 'block';
+		document.getElementById('delete-project-prompt').style.display = 'block';
+	}
 }

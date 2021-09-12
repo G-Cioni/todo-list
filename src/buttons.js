@@ -200,7 +200,8 @@ function globalDeleteTask(index) {
 
 // Deletes the relative Project
 function deleteProject(e) {
-	const index = parseInt(e.composedPath()[0].dataset.event);
+	const key = Object.keys(e.composedPath()[0].dataset)[0];
+	const index = parseInt(e.composedPath()[0].dataset[key]);
 	if (activeProject === projects[index]) {
 		document.getElementById('details-panel').style.display = 'none';
 		index === 0
