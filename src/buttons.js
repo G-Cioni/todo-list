@@ -254,7 +254,7 @@ function quickAdd(project, e) {
 			}
 			const task = createTask(
 				quickAddInput.value,
-				undefined,
+				'',
 				undefined,
 				'0',
 				undefined,
