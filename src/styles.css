@@ -254,7 +254,6 @@ input:focus::placeholder {
 	border-radius: 1em;
 	height: 1.7em;
 	align-items: center;
-	overflow: auto;
 }
 
 #all-tasks-title {
