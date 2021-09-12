@@ -220,11 +220,7 @@ function deleteProject(e) {
 function toggleTaskDone(e) {
 	e.stopPropagation();
 	const index = e.composedPath()[0].dataset.doneBtn;
-	const task = document.querySelector(`div[data-task="${index}"]`);
 	activeProject.tasks[index].toggleDone();
-	activeProject.tasks[index].isDone
-		? task.classList.add('task-done')
-		: task.classList.remove('task-done');
 	renderTasks(activeProject.tasks);
 	save(projects);
 }

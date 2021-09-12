@@ -23,8 +23,8 @@ import { setHiddenActiveTask } from './task';
 // Assign Dataset to Project Card
 function assignProjectDataIndex(index, card, editBtn, deleteBtn) {
 	card.dataset.project = index;
-	deleteBtn.dataset.deleteProjectBtn = index;
 	editBtn.dataset.editProjectBtn = index;
+	deleteBtn.dataset.deleteProjectBtn = index;
 }
 
 // Create a Project Card
@@ -77,10 +77,11 @@ function selectProject(project) {
 }
 
 // Assigns dataset to task card
-function assignTaskDataIndex(index, card, doneBtn, deleteBtn) {
+function assignTaskDataIndex(index, card, doneBtn, deleteBtn, title) {
 	card.dataset.task = index;
 	doneBtn.dataset.doneBtn = index;
 	deleteBtn.dataset.deleteBtn = index;
+	title.dataset.title = index;
 }
 
 // Create a new Task Card
@@ -91,12 +92,12 @@ function createTaskCard(task) {
 	const deleteBtn = createCardBtn('button', 'small-btn', deleteTask);
 	const title = createDomElement('div', 'task-title');
 	card.classList.add(`priority-${task.priority}`);
-	taskDone(task, card);
+	taskDone(task, card, title);
 	doneBtn.innerHTML = '&#10003';
 	deleteBtn.innerHTML = '&#10007;';
 	title.textContent = task.title;
 	appendToParent(card, doneBtn, title, deleteBtn);
-	assignTaskDataIndex(index, card, doneBtn, deleteBtn);
+	assignTaskDataIndex(index, card, doneBtn, deleteBtn, title);
 	card.addEventListener('click', () => renderTaskDetails(task));
 	return card;
 }
@@ -166,9 +167,13 @@ function resetTextInput(...args) {
 
 // Adds task-done class to task card
 
-function taskDone(task, card) {
+function taskDone(task, card, title) {
 	if (task.isDone === true) {
 		card.classList.add('task-done');
+		title.classList.add('task-title-done');
+	} else {
+		card.classList.remove('task-done');
+		title.classList.remove('task-title-done');
 	}
 }
 
