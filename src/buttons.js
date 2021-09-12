@@ -221,6 +221,7 @@ function toggleTaskDone(e) {
 	e.stopPropagation();
 	const index = e.composedPath()[0].dataset.doneBtn;
 	activeProject.tasks[index].toggleDone();
+	activeProject.tasks.sort((task) => (task.isDone === true ? 1 : -1));
 	renderTasks(activeProject.tasks);
 	save(projects);
 }
