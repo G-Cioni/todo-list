@@ -125,6 +125,7 @@ input:focus::placeholder {
 
 #pop-up-description-input {
 	height: 6em;
+	padding: 1em;
 }
 #pop-up-priority-input {
 	display: flex;
