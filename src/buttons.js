@@ -220,8 +220,24 @@ function deleteProject(e) {
 function toggleTaskDone(e) {
 	e.stopPropagation();
 	const index = e.composedPath()[0].dataset.doneBtn;
-	activeProject.tasks[index].toggleDone();
-	activeProject.tasks.sort((task) => (task.isDone === true ? 1 : -1));
+	const task = activeProject.tasks[index];
+	task.toggleDone();
+	if (task.isDone) {
+		activeProject.addTask(task);
+		activeProject.removeTask(task);
+	} else {
+		for (let i = 0; i < activeProject.tasks.length; i++) {
+			if (activeProject.tasks[i].isDone) {
+				activeProject.removeTask(task);
+				if (i !== 0 && activeProject.tasks[i - 1].isDone) {
+					activeProject.tasks.splice(i - 1, 0, task);
+				} else {
+					activeProject.tasks.splice(i, 0, task);
+				}
+				break;
+			}
+		}
+	}
 	renderTasks(activeProject.tasks);
 	save(projects);
 }
