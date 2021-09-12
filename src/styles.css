@@ -20,7 +20,6 @@ html {
 body {
 	grid-area: main;
 	display: grid;
-	grid-template-rows: 1fr 1fr 1fr;
 	grid-template-areas:
 		'. . .'
 		'sidebar task-panel details-panel'
@@ -313,6 +312,13 @@ input:focus::placeholder {
 
 ::-webkit-scrollbar-thumb:active {
 	background: #ffab36;
+}
+
+@media (min-width: 1001px) {
+	body {
+		position: relative;
+		right: 1.5em;
+	}
 }
 
 @media (max-width: 1000px) {
