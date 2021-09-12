@@ -208,11 +208,19 @@ input:focus::placeholder {
 	max-height: 100%;
 }
 
+#details-title {
+	margin-top: 0;
+}
 #details-description {
-	height: 19em;
+	height: 22em;
 	overflow: auto;
 	margin-bottom: 1em;
 }
+#details-due-date,
+#details-priority {
+	font-weight: bold;
+}
+
 #task-details-list,
 #task-list,
 #project-list {
@@ -323,7 +331,7 @@ input:focus::placeholder {
 		max-height: max-content;
 	}
 	#details-description {
-		height: 8.5em;
+		height: 9.5em;
 		margin-bottom: 1em;
 	}
 }
