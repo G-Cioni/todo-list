@@ -223,7 +223,7 @@ input:focus::placeholder {
 	margin-top: 0;
 }
 #details-description {
-	height: 22em;
+	max-height: 22em;
 	overflow: auto;
 	margin-bottom: 1em;
 }
@@ -349,7 +349,7 @@ input:focus::placeholder {
 		max-height: max-content;
 	}
 	#details-description {
-		height: 9.5em;
+		max-height: 9.5em;
 		margin-bottom: 1em;
 	}
 }
@@ -378,5 +378,8 @@ input:focus::placeholder {
 		height: max-content;
 		margin: 1em 0;
 		max-height: 25em;
+	}
+	#details-description {
+		max-height: 10em;
 	}
 }
