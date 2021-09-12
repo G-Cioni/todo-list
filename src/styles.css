@@ -254,6 +254,7 @@ input:focus::placeholder {
 	border-radius: 1em;
 	height: 1.7em;
 	align-items: center;
+	overflow: auto;
 }
 
 #all-tasks-title {
@@ -381,5 +382,34 @@ input:focus::placeholder {
 	}
 	#details-description {
 		max-height: 10em;
+	}
+}
+
+@media (max-width: 824px) and (max-height: 415px) {
+	body {
+		grid-template-areas:
+			'. . .'
+			'sidebar task-panel details-panel'
+			'. . . ';
+	}
+	.panel {
+		height: 80vh;
+		width: 25vw;
+		max-height: max-content;
+		margin-right: 1em;
+	}
+	#sidebar {
+		height: 80vh;
+		width: 25vw;
+		max-height: max-content;
+	}
+	#new-project-input,
+	#quick-add-input {
+		max-width: 50%;
+	}
+	#create-task-btn {
+		width: 70%;
+		position: relative;
+		right: 3em;
 	}
 }
