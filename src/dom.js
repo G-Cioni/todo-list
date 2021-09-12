@@ -165,7 +165,7 @@ function resetTextInput(...args) {
 	args.forEach((arg) => (arg.value = ''));
 }
 
-// Adds task-done class to task card
+// Adds task-done and 'task-title-done' class to task card and title
 
 function taskDone(task, card, title) {
 	if (task.isDone === true) {
