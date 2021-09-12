@@ -196,7 +196,6 @@ input:focus::placeholder {
 }
 #details-panel-wrapper {
 	grid-area: details-panel;
-
 	width: 20em;
 }
 #details-panel {
@@ -207,6 +206,12 @@ input:focus::placeholder {
 	display: flex;
 	flex-direction: column;
 	max-height: 100%;
+}
+
+#details-description {
+	height: 19em;
+	overflow: auto;
+	margin-bottom: 1em;
 }
 #task-details-list,
 #task-list,
@@ -316,6 +321,10 @@ input:focus::placeholder {
 	#sidebar {
 		height: 40vh;
 		max-height: max-content;
+	}
+	#details-description {
+		height: 8.5em;
+		margin-bottom: 1em;
 	}
 }
 
