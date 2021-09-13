@@ -217,7 +217,8 @@ function deleteProject(e) {
 	document.getElementById('delete-project-prompt').style.display = 'none';
 }
 
-// NOT WORKING YET. Toggles a task as "Done"
+//Toggles a task as "Done"
+
 function toggleTaskDone(e) {
 	e.stopPropagation();
 	const index = e.composedPath()[0].dataset.doneBtn;
@@ -254,7 +255,7 @@ function quickAdd(project, e) {
 				setActiveProject(projects[0]);
 			}
 			const task = createTask(
-				quickAddInput.value,
+				capitilize(quickAddInput.value),
 				'',
 				undefined,
 				'0',
