@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ToDo List</title>
+</head>
+<body>
+    <div id="sidebar">
+        <h3 id="projects-panel-title" class="panel-title">Projects</h3>
+        <div id="project-list">
+            <div id="all-tasks-project">
+                <div class="project-title" id="all-tasks-title">All Tasks</div>
+            </div>
+        </div>
+        <div id="new-project">
+            <form>
+                <input type="text" name="newProject" id="new-project-input" placeholder="Type to quickly add a project">            
+                <button type="submit" id="new-project-btn" class="small-btn">+</button>
+                <div id="add-project-errors" class="quick-add-errors"></div>
+            </form>
+        </div>
+    </div>
+    
+        <div id="task-panel" class="panel">
+            
+            <div>
+                <h3 id="project-title" class="panel-title"></h3>
+                <button type="button" id="create-task-btn">+ Create Task</button>
+            </div>
+
+            <div id="task-list"></div>
+            <div id="quick-add">
+                <form>
+                    <input type="text" id="quick-add-input"class="text-input" placeholder="Type to quickly add a task">
+                    <button type="submit" id="quick-add-btn" class="small-btn">+</button>
+                    <div id="add-task-errors" class="quick-add-errors"></div>
+                </form>
+            </div>
+        </div>
+        <div id="details-panel-wrapper">
+            <div id="details-panel" class="panel">
+                <div id="internal-details-panel">
+                    <div>
+                        <h3 class="panel-title">Task Details</h3>
+                        <button type="button" id="edit-task-btn">&#9998 Edit Task</button>
+                    </div>
+                    <div id="task-details-list">
+                        <h3 id="details-title">No task selected</h3>
+                        <p id="details-description"></p>
+                        <p id="details-due-date"></p>
+                        <p id="details-priority"></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    <div class="pop-up" id="delete-project-prompt">
+        <h3>Delete project</h3>
+        <p>Deleting a project cannot be undone. Are you sure?</p>
+        <div class="pop-up-btns">
+            <button type="button" id="delete-project-no" class="pop-up-btn">No</button>
+            <button type="button" id="delete-project-yes" class="pop-up-btn">Yes</button>
+        </div>
+    </div>
+    <form id="edit-project-popup" class="pop-up">
+        <h2>Edit Project Name</h2>
+        <div>        
+            <label for="project-name">New project name</label>
+            <input type="text" name="project-name" class="pop-up-input" id="edit-project-name-input">
+        </div>
+        <div class="pop-up-btns">
+            <button type="button" id="edit-project-name-cancel" class="pop-up-btn">Cancel</button>
+            <button type="button" id="edit-project-name-submit" class="pop-up-btn">Submit</button>
+        </div>
+    </form>
+    <form id="task-popup" class="pop-up">
+        <h2 id="pop-up-title">Create a new Task</h2>
+        <div id="pop-up-errors" class="errors"></div>
+        <div>        
+            <label for="title">Title</label>
+            <input type="text" name="title" class="pop-up-input" id="pop-up-title-input">
+        </div>
+        <div>        
+            <label for="Description">Description</label>
+            <textarea type="text" class="pop-up-input" id="pop-up-description-input"rows = "5" cols = "60" name = "description"></textarea>
+        </div>
+        <div>        
+            <label for="dueDate">Due Date</label>
+            <input type="date" name="dueDate" class="pop-up-input" id="pop-up-due-date-input">
+        </div>
+        <div>        
+            <label for="priority">Priority</label>
+            <div id="pop-up-priority-input" class="pop-up-input">
+              <div>
+                <input type="radio" name="priority" value="0">
+                <label for="priority" class="priority-label">None</label>
+              </div>
+              
+              <div>
+                <input type="radio" name="priority" value="1">
+                <label for="priority" id="priority-label-one" class="priority-label" >!</label>
+              </div>
+              
+              <div>
+                <input type="radio" name="priority" value="2">
+                <label for="priority" id="priority-label-two"class="priority-label">!!</label>
+              </div>
+
+              <div>
+                <input type="radio" name="priority" value="3">
+                <label for="priority" id="priority-label-three" class="priority-label">!!!</label>
+              </div>
+            </div>
+        </div>
+        <div class="pop-up-btns">
+            <button type="button" id="cancel-full-add-btn" class="pop-up-btn">Cancel</button>
+
+            <button type="button" id="full-add-btn" class="pop-up-btn">Submit</button>
+        </div>
+    </form>
+    <script src="bundle.js"></script>
+</body>
+</html>
