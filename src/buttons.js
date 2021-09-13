@@ -254,7 +254,7 @@ function quickAdd(project, e) {
 				setActiveProject(projects[0]);
 			}
 			const task = createTask(
-				quickAddInput.value,
+				capitilize(quickAddInput.value),
 				'',
 				undefined,
 				'0',
