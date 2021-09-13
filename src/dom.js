@@ -1,7 +1,13 @@
 /* eslint-disable import/no-cycle */
 /* eslint-disable no-param-reassign */
 /* eslint-disable operator-linebreak */
-import { setActiveProject, projects, activeProject } from './project';
+import {
+  setActiveProject,
+  projects,
+  activeProject,
+  createProject,
+  createAllTasksArray,
+} from './project';
 import {
   createCardBtn,
   deleteTask,
@@ -254,6 +260,12 @@ function capitilize(string) {
   return string.charAt(0).toUpperCase() + string.slice(1);
 }
 
+// Renders "All Tasks" project
+function renderAllTasksProject() {
+  const allTasksProject = createProject('All Tasks', createAllTasksArray());
+  renderActiveProject(allTasksProject);
+}
+
 export {
   renderProjects,
   renderTasks,
@@ -265,4 +277,5 @@ export {
   renderActiveProject,
   capitilize,
   quickAddValidation,
+  renderAllTasksProject,
 };
