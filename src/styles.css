@@ -68,7 +68,9 @@ button {
 	display: flex;
 	justify-content: space-between;
 	margin-top: 1em;
-	width: 90%;
+	width: 87%;
+	position: relative;
+	left: 0.65em;
 }
 
 .pop-up-btn {
