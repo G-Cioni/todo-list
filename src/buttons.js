@@ -31,62 +31,6 @@ export {
   showEditProjectPopUp,
 };
 
-// Create Tasks button opens pop-up and allows a full task to be added
-const createTaskBtn = document.getElementById('create-task-btn');
-createTaskBtn.addEventListener('click', () => showTaskPopUp('Create New Task'));
-
-// Quickly add a task with only the title, but no other information
-const quickAddInput = document.getElementById('quick-add-input');
-const quickAddBtn = document.getElementById('quick-add-btn');
-quickAddBtn.addEventListener('click', (e) => quickAdd(activeProject, e));
-
-// Add a task with title, description, due date and priority
-const fullAddBtn = document.getElementById('full-add-btn');
-fullAddBtn.addEventListener('click', () => createOrEditTask(activeProject));
-
-// Cancel new/edit task pop-up
-const taskPopUpCancel = document.getElementById('cancel-full-add-btn');
-taskPopUpCancel.addEventListener('click', () => hidePopUp('task-popup'));
-// Opens edit task pop-up
-const editTaskBtn = document.getElementById('edit-task-btn');
-editTaskBtn.addEventListener('click', () => showTaskPopUp('Edit Task'));
-
-// Add a new Project
-const newProjectInput = document.getElementById('new-project-input');
-const newProjectBtn = document.getElementById('new-project-btn');
-newProjectBtn.addEventListener('click', (e) =>
-  quickAddProject(newProjectInput.value, e),
-);
-
-// Pop-up confirmation to delete a project
-const cancelProjectYesBtn = document.getElementById('delete-project-yes');
-cancelProjectYesBtn.addEventListener('click', (e) => deleteProject(e));
-
-const cancelProjectNoBtn = document.getElementById('delete-project-no');
-cancelProjectNoBtn.addEventListener(
-  'click',
-  () =>
-    (document.getElementById('delete-project-prompt').style.display = 'none'),
-);
-
-// Edit project name
-const editProjectNameSubmit = document.getElementById(
-  'edit-project-name-submit',
-);
-editProjectNameSubmit.addEventListener('click', () => editProjectName());
-
-// Cancel edit Project name
-const cancelEditProjectName = document.getElementById(
-  'edit-project-name-cancel',
-);
-cancelEditProjectName.addEventListener('click', () =>
-  hidePopUp('edit-project-popup'),
-);
-
-// All Tasks Project
-const allTasksProjectCard = document.getElementById('all-tasks-project');
-allTasksProjectCard.addEventListener('click', () => renderAllTasksProject());
-
 // Quickly add a project
 function quickAddProject(projectName, e) {
   e.preventDefault();
@@ -112,16 +56,6 @@ function editProjectName() {
   renderProjects(projects);
   resetTextInput(input);
   hidePopUp('edit-project-popup');
-}
-
-function hidePopUp(id) {
-  const popUp = document.getElementById(id);
-  popUp.style.display = 'none';
-  resetTextInput(
-    document.getElementById('pop-up-title-input'),
-    document.getElementById('pop-up-description-input'),
-    document.getElementById('pop-up-due-date-input'),
-  );
 }
 
 // Create a card. Can be used for a task or a project
@@ -204,19 +138,23 @@ function deleteTask(e) {
 // Deletes the relative Project
 function deleteProject(e) {
   const key = Object.keys(e.composedPath()[0].dataset)[0];
-  const index = parseInt(e.composedPath()[0].dataset[key]);
+  const index = parseInt(e.composedPath()[0].dataset[key], 10);
   if (activeProject === projects[index]) {
     document.getElementById('details-panel').style.display = 'none';
-    index === 0
-      ? setActiveProject(projects[index + 1])
-      : setActiveProject(projects[index - 1]);
+    if (index === 0) {
+      setActiveProject(projects[index + 1]);
+    } else {
+      setActiveProject(projects[index - 1]);
+    }
   }
   removeProject(index);
   save(projects);
   renderProjects(projects);
-  activeProject !== undefined
-    ? renderActiveProject(activeProject)
-    : renderAllTasksProject();
+  if (activeProject !== undefined) {
+    renderActiveProject(activeProject);
+  } else {
+    renderAllTasksProject();
+  }
   document.getElementById('delete-project-prompt').style.display = 'none';
 }
 
@@ -315,6 +253,16 @@ function editTask(project) {
   renderTaskDetails(hiddenActiveTask);
 }
 
+function hidePopUp(id) {
+  const popUp = document.getElementById(id);
+  popUp.style.display = 'none';
+  resetTextInput(
+    document.getElementById('pop-up-title-input'),
+    document.getElementById('pop-up-description-input'),
+    document.getElementById('pop-up-due-date-input'),
+  );
+}
+
 // Decides to create a new task or edit an existing one
 function createOrEditTask(project) {
   popUpFormValidation();
@@ -335,8 +283,57 @@ function createOrEditTask(project) {
   }
 }
 
+// Edit project name
+const editProjectNameSubmit = document.getElementById(
+  'edit-project-name-submit',
+);
+editProjectNameSubmit.addEventListener('click', () => editProjectName());
+
+// Cancel edit Project name
+const cancelEditProjectName = document.getElementById(
+  'edit-project-name-cancel',
+);
+cancelEditProjectName.addEventListener('click', () => hidePopUp('edit-project-popup'));
+
 // Renders "All Tasks" project
 function renderAllTasksProject() {
   const allTasksProject = createProject('All Tasks', createAllTasksArray());
   renderActiveProject(allTasksProject);
 }
+
+// All Tasks Project
+const allTasksProjectCard = document.getElementById('all-tasks-project');
+allTasksProjectCard.addEventListener('click', () => renderAllTasksProject());
+
+// Create Tasks button opens pop-up and allows a full task to be added
+const createTaskBtn = document.getElementById('create-task-btn');
+createTaskBtn.addEventListener('click', () => showTaskPopUp('Create New Task'));
+
+// Quickly add a task with only the title, but no other information
+const quickAddInput = document.getElementById('quick-add-input');
+const quickAddBtn = document.getElementById('quick-add-btn');
+quickAddBtn.addEventListener('click', (e) => quickAdd(activeProject, e));
+
+// Add a task with title, description, due date and priority
+const fullAddBtn = document.getElementById('full-add-btn');
+fullAddBtn.addEventListener('click', () => createOrEditTask(activeProject));
+
+// Cancel new/edit task pop-up
+const taskPopUpCancel = document.getElementById('cancel-full-add-btn');
+taskPopUpCancel.addEventListener('click', () => hidePopUp('task-popup'));
+// Opens edit task pop-up
+const editTaskBtn = document.getElementById('edit-task-btn');
+editTaskBtn.addEventListener('click', () => showTaskPopUp('Edit Task'));
+
+// Add a new Project
+const newProjectInput = document.getElementById('new-project-input');
+const newProjectBtn = document.getElementById('new-project-btn');
+newProjectBtn.addEventListener('click', (e) => quickAddProject(newProjectInput.value, e));
+
+// Pop-up confirmation to delete a project
+const cancelProjectYesBtn = document.getElementById('delete-project-yes');
+cancelProjectYesBtn.addEventListener('click', (e) => deleteProject(e));
+
+const cancelProjectNoBtn = document.getElementById('delete-project-no');
+cancelProjectNoBtn.addEventListener(
+  'click', () => (document.getElementById('delete-project-prompt').style.display = 'none'));
