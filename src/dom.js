@@ -255,8 +255,8 @@ function quickAddValidation(title, errorsId) {
       : titleValidation(title);
 }
 
-// Capitilize first letter
-function capitilize(string) {
+// capitalize first letter
+function capitalize(string) {
   return string.charAt(0).toUpperCase() + string.slice(1);
 }
 
@@ -275,7 +275,7 @@ export {
   renderTaskDetails,
   popUpFormValidation,
   renderActiveProject,
-  capitilize,
+  capitalize,
   quickAddValidation,
   renderAllTasksProject,
 };

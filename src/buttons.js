@@ -10,7 +10,7 @@ import {
   renderTaskDetails,
   popUpFormValidation,
   renderActiveProject,
-  capitilize,
+  capitalize,
   quickAddValidation,
   renderAllTasksProject,
 } from './dom';
@@ -32,7 +32,7 @@ const newProjectInput = document.getElementById('new-project-input');
 
 // Creates a new Project
 function newProject(projectName) {
-  projects.push(createProject(capitilize(projectName), []));
+  projects.push(createProject(capitalize(projectName), []));
   save(projects);
   renderActiveProject(projects[projects.length - 1]);
   renderProjects(projects);
@@ -206,7 +206,7 @@ function quickAdd(project, e) {
         setActiveProject(projects[0]);
       }
       const task = createTask(
-        capitilize(quickAddInput.value),
+        capitalize(quickAddInput.value),
         '',
         undefined,
         '0',
