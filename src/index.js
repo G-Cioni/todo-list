@@ -5,12 +5,10 @@ import {
 	projects,
 	setActiveProject,
 	createProject,
-	personal,
-	work,
 } from './project';
 import { renderTasks, renderProjects, selectProject } from './dom';
-import { quickAdd, newProject } from './buttons';
-import { save, load } from './localStorage';
+import { newProject } from './buttons';
+import { save } from './localStorage';
 
 // Recreates all Projects and Tasks with working __proto__ after loading it from localStorage
 for (let i = 0; i < projects.length; i++) {

@@ -9,7 +9,7 @@ import {
 	capitilize,
 	quickAddValidation,
 } from './dom.js';
-import { hiddenActiveTask, createTask, setHiddenActiveTask } from './task.js';
+import { hiddenActiveTask, createTask } from './task.js';
 import {
 	activeProject,
 	projects,
@@ -18,7 +18,6 @@ import {
 	setHiddenActiveProject,
 	hiddenActiveProject,
 	setActiveProject,
-	allTasksProject,
 	createAllTasksArray,
 } from './project.js';
 import { save } from './localStorage';

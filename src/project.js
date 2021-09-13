@@ -11,7 +11,6 @@ export {
 };
 import { load } from './localStorage';
 import { createTask } from './task';
-import { newProject } from './buttons';
 
 // Project Factory Function
 function createProject(title, tasks) {

@@ -10,12 +10,7 @@ export {
 	capitilize,
 	quickAddValidation,
 };
-import {
-	setActiveProject,
-	projects,
-	activeProject,
-	removeProject,
-} from './project';
+import { setActiveProject, projects, activeProject } from './project';
 import {
 	createCardBtn,
 	deleteTask,

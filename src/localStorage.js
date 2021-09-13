@@ -1,4 +1,3 @@
-import { projects, createProject } from './project';
 export { save, load };
 
 // Saves to localStorage
