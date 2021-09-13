@@ -218,6 +218,7 @@ function deleteProject(e) {
 }
 
 //Toggles a task as "Done"
+
 function toggleTaskDone(e) {
 	e.stopPropagation();
 	const index = e.composedPath()[0].dataset.doneBtn;
