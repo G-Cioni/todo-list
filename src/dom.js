@@ -133,6 +133,7 @@ function renderTasks(tasks) {
 function renderActiveProject(project) {
   setActiveProject(project);
   selectProject(project);
+  orderAllTasks(project);
   renderTasks(project.tasks);
 }
 
@@ -197,7 +198,6 @@ function orderAllTasks(project) {
 function appendProject(project) {
   const list = document.getElementById('project-list');
   const card = createProjectCard(project);
-  orderAllTasks(project);
   list.appendChild(card);
 }
 
