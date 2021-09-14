@@ -170,10 +170,34 @@ function createProjectCard(project) {
   return card;
 }
 
+// Order a tasks
+function orderTask(project, task) {
+  for (let i = 0; i < project.tasks.length; i += 1) {
+    if (project.tasks[i].isDone) {
+      project.removeTask(task);
+      if (i !== 0 && project.tasks[i - 1].isDone) {
+        project.tasks.splice(i - 1, 0, task);
+      } else {
+        project.tasks.splice(i, 0, task);
+      }
+      break;
+    }
+  }
+}
+
+// Order all tasks
+function orderAllTasks(project) {
+  for (let i = 0; i < project.tasks.length; i += 1) {
+    const task = project.tasks[i];
+    orderTask(project, task);
+  }
+}
+
 // Appends Project Card to Project List
 function appendProject(project) {
   const list = document.getElementById('project-list');
   const card = createProjectCard(project);
+  orderAllTasks(project);
   list.appendChild(card);
 }
 
@@ -263,6 +287,7 @@ function capitalize(string) {
 // Renders "All Tasks" project
 function renderAllTasksProject() {
   const allTasksProject = createProject('All Tasks', createAllTasksArray());
+  orderAllTasks(allTasksProject);
   renderActiveProject(allTasksProject);
 }
 
@@ -277,5 +302,6 @@ export {
   renderActiveProject,
   capitalize,
   quickAddValidation,
+  orderTask,
   renderAllTasksProject,
 };

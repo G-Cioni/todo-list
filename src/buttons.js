@@ -13,6 +13,7 @@ import {
   capitalize,
   quickAddValidation,
   renderAllTasksProject,
+  orderTask,
 } from './dom';
 import { hiddenActiveTask, createTask } from './task';
 import {
@@ -169,7 +170,6 @@ function deleteProject(e) {
 }
 
 // Toggles a task as "Done"
-
 function toggleTaskDone(e) {
   e.stopPropagation();
   const index = e.composedPath()[0].dataset.doneBtn;
@@ -179,17 +179,7 @@ function toggleTaskDone(e) {
     activeProject.addTask(task);
     activeProject.removeTask(task);
   } else {
-    for (let i = 0; i < activeProject.tasks.length; i += 1) {
-      if (activeProject.tasks[i].isDone) {
-        activeProject.removeTask(task);
-        if (i !== 0 && activeProject.tasks[i - 1].isDone) {
-          activeProject.tasks.splice(i - 1, 0, task);
-        } else {
-          activeProject.tasks.splice(i, 0, task);
-        }
-        break;
-      }
-    }
+    orderTask(activeProject, task);
   }
   renderTasks(activeProject.tasks);
   save(projects);
