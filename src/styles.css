@@ -37,6 +37,7 @@ h3 {
   font-size: 1.3em;
   font-weight: bold;
   text-align: center;
+  margin-bottom: 1em;
 }
 
 h2 {
@@ -235,10 +236,12 @@ input:focus::placeholder {
   max-height: 22em;
   overflow: auto;
   margin-bottom: 1em;
+  padding: 0.1em 0.5em;
 }
 #details-due-date,
 #details-priority {
   font-weight: bold;
+  padding: 0.2em 0em;
 }
 
 #task-details-list,
@@ -253,6 +256,7 @@ input:focus::placeholder {
 #task-details-list {
   margin-top: 1em;
   margin-bottom: 0.5em;
+  padding: 0.1em 0.3em 0.1em 0.1em;
 }
 
 .task-card {
