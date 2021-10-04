@@ -1,2 +1,2 @@
 # todo-list
-https://gianluca-cioni.github.io/todo-list/
+https://gianlucacioni.github.io/todo-list/
