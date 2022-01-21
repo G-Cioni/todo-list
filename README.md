@@ -27,7 +27,7 @@ From The Odin Project's [curriculum](https://www.theodinproject.com/paths/full-s
 ### What I learned
 
 - **ES6 Modules**
-- **S.O.L.I.D**
+- **S.O.L.I.D.**
 - **Webpack**
 - **Object Oriented Programming**
 - **ESLint**
