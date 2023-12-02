@@ -2,7 +2,7 @@
 
 
 
-### [Live Preview Todo List](https://gianlucacioni.github.io/todo-list/)
+### [Live Preview Todo List](https://g-cioni.github.io/todo-list/)
 
 From The Odin Project's [curriculum](https://www.theodinproject.com/paths/full-stack-javascript/courses/javascript/lessons/todo-list)
 
